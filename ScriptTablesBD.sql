@@ -129,3 +129,22 @@ create table PagosCuotas
  CONSTRAINT pk_PagosCuotas PRIMARY KEY (PagoCuotaID),
  constraint fk_PagosCuotas_Prestamos FOREIGN KEY (PrestamoID) REFERENCES Prestamos(PrestamoID) ON DELETE CASCADE
 );
+create table EstadosRevisionesPrestamos
+( 
+ EstadoRevisionPrestamoID int not null AUTO_INCREMENT,
+ Nombre nvarchar(24) NOT NULL,
+ Descripcion nvarchar(150) NOT NULL,
+ CONSTRAINT pk_ResultadosRevisionesPrestamos PRIMARY KEY (EstadoRevisionPrestamoID)
+);
+create table RevisionesPrestamos
+( 
+ RevisionPrestamoID int NOT NULL AUTO_INCREMENT,
+ UsuarioIDRevision int not null,
+ EstadoRevisionPrestamoID int NOT NULL,
+ PrestamoID int NOT NULL,
+ Fecha Date not null,
+ CONSTRAINT pk_RevisionesPrestamos PRIMARY KEY (RevisionPrestamoID),
+ constraint fk_Prestamos FOREIGN KEY (PrestamoID) REFERENCES Prestamos(PrestamoID),
+ constraint fk_RevisionesPrestamos_EstadosRevisionesPrestamos FOREIGN KEY (EstadoRevisionPrestamoID) REFERENCES EstadosRevisionesPrestamos(EstadoRevisionPrestamoID),
+ constraint fk_RevisionesPrestamos_Usuarios FOREIGN KEY (UsuarioIDRevision) REFERENCES Usuarios(UsuarioID) ON DELETE CASCADE
+);

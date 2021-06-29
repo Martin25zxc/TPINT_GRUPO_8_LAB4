@@ -121,7 +121,7 @@ create table Prestamos
  ImporteAPagarcliente decimal(15,2) NOT NULL,
  ImportePedidoCliente decimal(15,2) NOT NULL,
  MontoPorCuota decimal(15,2) NOT NULL,
- Plazo int,
+ Plazo int NOT NULL,
  CONSTRAINT pk_Prestamos PRIMARY KEY (PrestamoID),
  constraint fk_Prestamos_Clientes FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID) ON DELETE CASCADE
 );

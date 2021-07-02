@@ -6,16 +6,19 @@ public class Usuario {
 	private String contrasenia;
 	private String email;
 	private String descripcion;
-	private int tipoUsuarioId;
+	private String tipoUsuarioId;
 	private boolean activo;
 	
-	public Usuario(String nombreUsuario, String contrasenia, String email, String descripcion, int tipoUsuarioID, boolean activo) {
+	public Usuario(String nombreUsuario, String contrasenia, String email, String descripcion, String tipoUsuarioID, boolean activo) {
 		this.nombreUsuario = nombreUsuario;
 		this.contrasenia = contrasenia;
 		this.email = email;
 		this.descripcion = descripcion;
 		this.tipoUsuarioId = tipoUsuarioID;
 		this.activo = activo;
+	}
+	
+	public Usuario() {
 	}
 	
 	public int getUsuarioId(){
@@ -54,11 +57,11 @@ public class Usuario {
 		this.descripcion = descripcion;
 	}
 
-	public int getTipousuarioid(){
+	public String getTipousuarioid(){
 		return tipoUsuarioId;
 	}
 
-	public void setTipousuarioid(int tipoUsuarioId){
+	public void setTipousuarioid(String tipoUsuarioId){
 		this.tipoUsuarioId = tipoUsuarioId;
 	}
 	

@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%! String rol = "shared/nav"+"Banco"+".jsp"; %>
+<%! String rol = "../shared/nav"+"Banco"+".jsp"; %>
 <t:masterBanco>
  	<jsp:attribute name="title">
     Alta de Clientes

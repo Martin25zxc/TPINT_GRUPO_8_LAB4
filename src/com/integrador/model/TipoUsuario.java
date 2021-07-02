@@ -1,6 +1,6 @@
 package com.integrador.model;
 public class TipoUsuario {
-	private int tipoUsuarioId;
+	private String tipoUsuarioId;
 	private String nombre;
 	private String descripcion;
 
@@ -9,7 +9,10 @@ public class TipoUsuario {
 		this.descripcion = descripcion;
 	}
 	
-	public int getTipoUsuario(){
+	public TipoUsuario() {
+	}
+	
+	public String getTipoUsuario(){
 		return tipoUsuarioId;
 	}
 

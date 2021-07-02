@@ -37,6 +37,13 @@ public class Cliente {
 		this.usuarioID = usuarioID;
 	}
 	
+	public Cliente(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public Cliente() {
+	}
+	
 	public int getClienteId(){
 		return clienteId;
 	}

@@ -20,6 +20,9 @@ public class Cuenta {
 		this.activo = activo;
 	}
 	
+	public Cuenta() {
+	}
+	
 	public int getCuentaId() {
 		return cuentaId;
 	}

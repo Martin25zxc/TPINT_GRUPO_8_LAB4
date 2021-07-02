@@ -9,6 +9,10 @@ public class TipoMovimiento {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
+	
+	public TipoMovimiento() {
+	}
+	
 	public int getTipoMovimientoId(){
 		return tipoMovimientoId;
 	}

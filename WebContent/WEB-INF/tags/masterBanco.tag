@@ -9,13 +9,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><jsp:invoke fragment="title"/></title>
   <!-- MD5 -->
-  <script src="../assets/MD5/js/md5.min.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/MD5/js/md5.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/adminLTE/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/dist/css/adminlte.min.css">
   <script>
   	var hash = md5("email");
   </script>
@@ -31,7 +31,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../assets/adminLTE/index3.html" class="nav-link">Home</a>
+        <a href="${pageContext.request.contextPath}/assets/adminLTE/index3.html" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -43,8 +43,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../assets/adminLTE/index3.html" class="brand-link">
-      <img src="../assets/adminLTE/dist/img/piggy_bank_PNG42w.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="${pageContext.request.contextPath}/assets/adminLTE/index3.html" class="brand-link">
+      <img src="${pageContext.request.contextPath}/assets/adminLTE/dist/img/piggy_bank_PNG42w.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Integrador</span>
     </a>
 
@@ -125,16 +125,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../assets/adminLTE/plugins/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../assets/adminLTE/dist/js/adminlte.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/adminlte.min.js"></script>
 <!-- InputMask -->
-<script src="../assets/adminLTE/plugins/moment/moment.min.js"></script>
-<script src="../assets/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/moment/moment.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../assets/adminLTE/dist/js/demo.js"></script>
+<script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/demo.js"></script>
   <script>
   $(function () {
   	$('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })

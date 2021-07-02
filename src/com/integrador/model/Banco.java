@@ -10,6 +10,9 @@ public class Banco{
 		this.descripcion = descripcion;
 	}
 
+	public Banco() {
+	}
+
 	public int getBancoId(){
 		return bancoId;
 	}

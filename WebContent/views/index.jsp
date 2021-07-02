@@ -10,23 +10,23 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../assets/adminLTE/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="${pageContext.request.contextPath}/assets/adminLTE/index2.html" class="h1"><b>Integrador</b> | <i class="fas fa-piggy-bank"></i> </a>
+      <a href="../assets/adminLTE/index2.html" class="h1"><b>Integrador</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Bienvenido!</p>
 
-      <form action="${pageContext.request.contextPath}/assets/adminLTE/index3.html" method="post">
+      <form action="../assets/adminLTE/index3.html" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -45,7 +45,6 @@
         </div>
         <div class="row">
           <div class="col-7">
-          <!--   <a href="forgot-password.html">Olvide mi contraseña</a> -->
           </div>
           <!-- /.col -->
           <div class="col-5">
@@ -54,6 +53,12 @@
           <!-- /.col -->
         </div>
       </form>
+
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1">
+        <a href="forgot-password.html">Olvide mi contraseña</a>
+      </p>
     </div>
     <!-- /.card-body -->
   </div>
@@ -62,10 +67,10 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/adminlte.min.js"></script>
+<script src="../assets/adminLTE/dist/js/adminlte.min.js"></script>
 </body>
 </html>

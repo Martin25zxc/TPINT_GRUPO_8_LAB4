@@ -1,6 +1,7 @@
 package com.integrador.model;
 
 public class TipoCuenta {
+	public int tipoCuentaId;
 	private String nombre;
 	private String descripcion;
 	
@@ -9,6 +10,10 @@ public class TipoCuenta {
 		this.descripcion = descripcion;
 	}
 
+	public int getTipoCuentaId(){
+		return tipoCuentaId;
+	}
+	
 	public String getNombre(){
 		return nombre;
 	}

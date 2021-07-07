@@ -20,9 +20,10 @@ import com.integrador.negocioImpl.ClienteBllImpl;
 public class servletClientes extends servletBaseIntegrador {
 
 	private static final long serialVersionUID = -4717208001910999086L;
-	private ClienteBll clienteBll;
-	private String viewClienteAlta = "/views/Clientes/clientesAlta.jsp";
 	
+	private ClienteBll clienteBll;
+	private final String viewClienteAlta = "/views/Clientes/clientesAlta.jsp";
+	private final String viewClienteListado = "/views/Clientes/clientesListado.jsp";
 	/**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,19 +32,15 @@ public class servletClientes extends servletBaseIntegrador {
         clienteBll = new ClienteBllImpl();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(!this.isLogged(request))
 		{
 			this.redirectToLogin(request, response);
 		}
 		else {
-			String action = request.getPathInfo();
+			String action = getCurrentAction(request);
 			if(action!=null)
 			{
-				action= action.toLowerCase();
 				switch (action) {
 					case "/alta":
 					{
@@ -53,9 +50,8 @@ public class servletClientes extends servletBaseIntegrador {
 					}
 					case "/listado":
 					{
-						
 						request.setAttribute("lista", clienteBll.get());	
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/views/Clientes/clientesListado.jsp");
+						RequestDispatcher dispatcher = request.getRequestDispatcher(viewClienteListado);
 						dispatcher.forward(request, response);
 						break;
 					}
@@ -68,9 +64,7 @@ public class servletClientes extends servletBaseIntegrador {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("btnAceptar")!=null)

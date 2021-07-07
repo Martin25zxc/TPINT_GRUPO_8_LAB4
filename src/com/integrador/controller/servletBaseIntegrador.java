@@ -27,9 +27,30 @@ public abstract class servletBaseIntegrador extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/Home");
 	}
 	
-	protected Usuario GetUsuarioLogueado(HttpServletRequest request) {
+	protected Usuario getUsuarioLogueado(HttpServletRequest request) {
 		
 		Usuario user =((Usuario)(request.getSession().getAttribute("UsuarioLogueado")));
 		return user;
+	}
+	
+	protected String getCurrentAction(HttpServletRequest request) {
+		String actionName = request.getPathInfo();
+		return actionName == null? null : actionName.toLowerCase();
+	}
+	
+	protected void addErrorAlertMessage(HttpServletRequest request, String message) {
+		request.setAttribute("alertErrorMessage",message);
+	}
+	
+	protected void addInfoAlertMessage(HttpServletRequest request, String message) {
+		request.setAttribute("alertInforMessage",message);
+	}
+	
+	protected void addSuccessAlertMessage(HttpServletRequest request, String message) {
+		request.setAttribute("alertSuccessMessage",message);
+	}
+	
+	protected void addWarningAlertMessage(HttpServletRequest request, String message) {
+		request.setAttribute("alertWarningMessage",message);
 	}
 }

@@ -26,7 +26,7 @@
     <div class="card-body">
     <jsp:include page="../shared/alert.jsp"></jsp:include> 
       <p class="login-box-msg">Bienvenido!</p>
-      <form action="Home" method="post">
+      <form action="${pageContext.request.contextPath}/Home" method="post">
         <div class="input-group mb-3">
           <input class="form-control" name="txtNombreUsuario" placeholder="Usuario">
           <div class="input-group-append">

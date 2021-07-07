@@ -39,7 +39,17 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-      	 <jsp:include page="<%=rol%>"></jsp:include> 
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      		 <jsp:include page="<%=rol%>"></jsp:include> 
+      		<li class="nav-item">
+           	 <a href="${pageContext.request.contextPath}/Home/logout" class="nav-link" onclick="return confirm('Esta seguro que desea cerrar sesión?')">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Cerrar sesión
+              </p>
+            </a>
+          </li>
+       	 </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

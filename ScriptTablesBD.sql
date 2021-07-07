@@ -2,7 +2,7 @@ create database BancoIntegrador;
 use BancoIntegrador;
 create table TiposUsuarios
 ( 
- TipoUsuarioID int NOT NULL AUTO_INCREMENT,
+ TipoUsuarioID nvarchar(30) NOT NULL,
  Nombre nvarchar(60) NOT NULL,
  Descripcion nvarchar(160) NOT NULL,
  CONSTRAINT pk_TiposUsuarios PRIMARY KEY (TipoUsuarioID)
@@ -12,9 +12,9 @@ create table Usuarios
  UsuarioID int NOT NULL AUTO_INCREMENT,
  NombreUsuario nvarchar(60) NOT NULL,
  Contrasenia nvarchar(60) NOT NULL,
- Email nvarchar(60) NOT NULL,
+ UserEmail nvarchar(60) NOT NULL,
  Descripcion nvarchar(160) NULL,
- TipoUsuarioID int NOT NULL,
+ TipoUsuarioID nvarchar(30) NOT NULL,
  Activo bit not null,
  CONSTRAINT pk_Usuarios PRIMARY KEY (UsuarioID),
  constraint fk_Usuarios_TiposUsuarios FOREIGN KEY (TipoUsuarioID) REFERENCES TiposUsuarios(TipoUsuarioID)
@@ -155,3 +155,12 @@ create table RevisionesPrestamos
  constraint fk_RevisionesPrestamos_EstadosRevisionesPrestamos FOREIGN KEY (EstadoRevisionPrestamoID) REFERENCES EstadosRevisionesPrestamos(EstadoRevisionPrestamoID),
  constraint fk_RevisionesPrestamos_Usuarios FOREIGN KEY (UsuarioIDRevision) REFERENCES Usuarios(UsuarioID) ON DELETE CASCADE
 );
+
+insert into TiposUsuarios(TipoUsuarioID, Nombre, Descripcion)
+select 'Banco', 'Tipo de usuario Banco', 'Usuario Banco, tiene acceso a los modulos de operador del banco' union
+select 'Cliente', 'Tipo de usuario Cliente', 'Usuario Cliente, tiene acceso a los modulos de Cliente';
+
+insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo)
+select 'admin', 'admin',' admin@integrador.com', 'Usuario admin del sistema','Banco',1;
+
+

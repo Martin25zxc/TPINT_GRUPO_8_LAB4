@@ -1,8 +1,6 @@
 <%@tag description="master page" pageEncoding="UTF-8"%>
-<%@attribute name="header" fragment="true" %>
-<%@attribute name="footer" fragment="true" %>
 <%@attribute name="title" fragment="true" %>
-<%@attribute name="navRol" fragment="true" %>
+<%@attribute name="asideBar" fragment="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +29,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="${pageContext.request.contextPath}/assets/adminLTE/index3.html" class="nav-link">Home</a>
+        <a href="${pageContext.request.contextPath}/Home" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -41,46 +39,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="${pageContext.request.contextPath}/assets/adminLTE/index3.html" class="brand-link">
-      <img src="${pageContext.request.contextPath}/assets/adminLTE/dist/img/piggy_bank_PNG42w.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Integrador</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="https://www.gravatar.com/avatar/${hash}?d=identicon" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Nombre Usuario</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-          <jsp:invoke fragment="navRol"/>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
+ 	 <jsp:invoke fragment="asideBar"/>
   <!-- Content Wrapper. Contains page content -->
 
   <div class="content-wrapper">
@@ -93,7 +52,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Home">Home</a></li>
               <li class="breadcrumb-item active"><jsp:invoke fragment="title"/></li>
             </ol>
           </div>
@@ -135,10 +94,10 @@
 <script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/demo.js"></script>
-  <script>
+<script>
   $(function () {
   	$('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
   });
-   </script>
+</script>
 </body>
 </html>

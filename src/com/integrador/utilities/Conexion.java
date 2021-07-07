@@ -17,8 +17,9 @@ public class  Conexion
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = DriverManager.getConnection(host + dbName, user, pass);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = host + dbName;
+			this.connection = DriverManager.getConnection(url, user, pass);
 			this.connection.setAutoCommit(false);
 		}
 		catch(Exception e)
@@ -35,7 +36,7 @@ public class  Conexion
 			instancia = new Conexion();
 		}
 		return instancia;
-	}
+	} 
 
 	public Connection getSQLConexion() 
 	{
@@ -46,7 +47,7 @@ public class  Conexion
 	{
 		try 
 		{
-			this.connection.close();
+			instancia.connection.close();
 		}
 		catch (SQLException e) 
 		{

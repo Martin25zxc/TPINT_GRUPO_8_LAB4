@@ -1,4 +1,4 @@
-package com.integrador.controller.cuentas;
+package com.integrador.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class servletCuentas
  */
-@WebServlet("/servletCuentas")
+@WebServlet("/Cuentas/*")
 public class servletCuentas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +27,8 @@ public class servletCuentas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String path = (request.getPathInfo()).toLowerCase();
+		response.getWriter().append("Served at: ").append(request.getContextPath()+request.getServletPath()+" s  "+path);
 	}
 
 	/**

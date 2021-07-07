@@ -5,6 +5,7 @@ import java.util.Date;
 public class Cliente {
 	private int clienteId;
 	private Date fechaNacimiento;
+	private Date fechaAlta;
 	private String nombre;
 	private String apellido;
 	private String nacionalidad;
@@ -18,7 +19,9 @@ public class Cliente {
 	private int usuarioID;
 	private boolean activo;
 	
-	public Cliente(Date fechaNacimiento, String nombre, String apellido, String nacionalidad, String direccion,
+	private Usuario usuario;
+	
+	public Cliente(Date fechaNacimiento, Date fechaAlta, String nombre, String apellido, String nacionalidad, String direccion,
 			String localidad, String provincia, String email, String nroDocumento, String telefono1, String telefono2,
 			int usuarioID, boolean activo) {
 		
@@ -35,6 +38,7 @@ public class Cliente {
 		this.telefono2 = telefono2;
 		this.activo = activo;
 		this.usuarioID = usuarioID;
+		this.fechaAlta = fechaAlta;
 	}
 	
 	public Cliente(String nombre) {
@@ -44,6 +48,18 @@ public class Cliente {
 	public Cliente() {
 	}
 	
+	public void setClienteId(int clienteId){
+		this.clienteId = clienteId;
+	}
+	
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
 	public int getClienteId(){
 		return clienteId;
 	}
@@ -150,5 +166,29 @@ public class Cliente {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	public String getNroDocumento() {
+		return nroDocumento;
+	}
+
+	public void setNroDocumento(String nroDocumento) {
+		this.nroDocumento = nroDocumento;
+	}
+
+	public int getUsuarioID() {
+		return usuarioID;
+	}
+
+	public void setUsuarioID(int usuarioID) {
+		this.usuarioID = usuarioID;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

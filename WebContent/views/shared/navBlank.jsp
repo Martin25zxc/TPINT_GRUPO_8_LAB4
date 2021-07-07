@@ -13,7 +13,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="${pageContext.request.contextPath}/Clientes/Alta" class="nav-link">
+                <a href="../assets/adminLTE/index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Alta de clientes</p>
                 </a>

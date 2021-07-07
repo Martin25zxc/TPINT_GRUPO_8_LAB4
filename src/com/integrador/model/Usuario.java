@@ -8,6 +8,7 @@ public class Usuario {
 	private String descripcion;
 	private String tipoUsuarioId;
 	private boolean activo;
+	private Cliente cliente;
 	
 	public Usuario(String nombreUsuario, String contrasenia, String email, String descripcion, String tipoUsuarioID, boolean activo) {
 		this.nombreUsuario = nombreUsuario;
@@ -16,6 +17,7 @@ public class Usuario {
 		this.descripcion = descripcion;
 		this.tipoUsuarioId = tipoUsuarioID;
 		this.activo = activo;
+		this.cliente = null;
 	}
 	
 	public Usuario() {
@@ -23,6 +25,10 @@ public class Usuario {
 	
 	public int getUsuarioId(){
 		return usuarioId;
+	}
+	
+	public void setUsuarioId(int id){
+		this.usuarioId = id;
 	}
 	
 	public String getNombreusuario(){
@@ -57,11 +63,11 @@ public class Usuario {
 		this.descripcion = descripcion;
 	}
 
-	public String getTipousuarioid(){
+	public String getTipousuarioId(){
 		return tipoUsuarioId;
 	}
 
-	public void setTipousuarioid(String tipoUsuarioId){
+	public void setTipousuarioId(String tipoUsuarioId){
 		this.tipoUsuarioId = tipoUsuarioId;
 	}
 	
@@ -71,5 +77,13 @@ public class Usuario {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }

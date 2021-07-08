@@ -16,7 +16,7 @@ public  class ResultSetMapper {
 		String descripcion = resultSet.getString("Descripcion");
 		String tipoUsuarioId= resultSet.getString("TipoUsuarioID");
 		boolean activo = resultSet.getBoolean("Activo");
-		Usuario usuario = new Usuario(contrasenia, nombreUsuario, email, descripcion, tipoUsuarioId, activo);
+		Usuario usuario = new Usuario(nombreUsuario,contrasenia , email, descripcion, tipoUsuarioId, activo);
 		usuario.setUsuarioId(usuarioId);
 		
 		if(tipoUsuarioId.equals("Cliente"))
@@ -32,8 +32,8 @@ public  class ResultSetMapper {
 	{
 		Cliente cliente = new Cliente();
 		cliente.setClienteId(resultSet.getInt("clienteID"));
-		cliente.setFechaNacimiento(resultSet.getDate("FechaNacimiento"));
-		cliente.setFechaAlta(resultSet.getDate("FechaAlta"));
+		cliente.setFechaNacimiento((resultSet.getDate("FechaNacimiento")).toLocalDate());
+		cliente.setFechaAlta((resultSet.getDate("FechaAlta")).toLocalDate());
 		cliente.setNombre(resultSet.getString("Nombre"));
 		cliente.setApellido(resultSet.getString("Apellido"));
 		cliente.setNacionalidad(resultSet.getString("Nacionalidad"));

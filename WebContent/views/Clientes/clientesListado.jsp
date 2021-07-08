@@ -5,13 +5,12 @@
  	<jsp:attribute name="title">
     Listado de Clientes
     </jsp:attribute>
-    <jsp:attribute name="header">
+	 <jsp:attribute name="asideBar">
+     	<jsp:include page="../shared/asideBar.jsp"></jsp:include>
+    </jsp:attribute>
     
-    </jsp:attribute>
-     <jsp:attribute name="navRol">
-		<jsp:include page="<%=rol%>"></jsp:include>
-    </jsp:attribute>
     <jsp:body>
+     <jsp:include page="../shared/alert.jsp"></jsp:include>
       <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -30,7 +29,6 @@
                       <th>Apellido</th>
                       <th>Nombre</th>
                       <th>E-mail</th>
-                      <th>F. Alta</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -41,7 +39,6 @@
                       <td>Diogenes</td>
                       <td>Felipe</td>
                       <td>f.diogenes@mail.com</td>
-                      <td>26/06/2021</td>
                       <td>
                       <div>
                           <a class="btn btn-info btn-sm" href="#">
@@ -62,7 +59,6 @@
                       <td>Imadia</td>
                       <td>Lucas</td>
                       <td>lucas.imadia@mail.com</td>
-                      <td>26/06/2021</td>
                       <td>
                       <div>
                           <a class="btn btn-info btn-sm" href="#">
@@ -83,7 +79,6 @@
                       <td>Ros</td>
                       <td>Lucia</td>
                       <td>l.ros@mail.com</td>
-                      <td>26/06/2021</td>
                       <td>
                       <div>
                           <a class="btn btn-info btn-sm" href="#">

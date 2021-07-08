@@ -27,6 +27,10 @@ public abstract class servletBaseIntegrador extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/Home");
 	}
 	
+	protected void redirectToHome(HttpServletRequest request, HttpServletResponse response) throws IOException  {
+		response.sendRedirect(request.getContextPath() + "/Home");
+	}
+	
 	protected Usuario getUsuarioLogueado(HttpServletRequest request) {
 		
 		Usuario user =((Usuario)(request.getSession().getAttribute("UsuarioLogueado")));

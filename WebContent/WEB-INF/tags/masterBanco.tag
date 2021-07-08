@@ -1,4 +1,4 @@
-<%@tag description="master page" pageEncoding="UTF-8"%>
+<%@tag description="master page" pageEncoding="iso-8859-1"%>
 <%@attribute name="title" fragment="true" %>
 <%@attribute name="asideBar" fragment="true" %>
 <!DOCTYPE html>
@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/dist/css/adminlte.min.css">
+  <!-- jQuery -->
+	<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
   <script>
   	var hash = md5("email");
   </script>
@@ -59,7 +61,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
    	 <jsp:doBody />
     <!-- /.content -->
@@ -83,8 +84,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
@@ -94,10 +94,5 @@
 <script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/demo.js"></script>
-<script>
-  $(function () {
-  	$('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-  });
-</script>
 </body>
 </html>

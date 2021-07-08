@@ -13,7 +13,7 @@
 	
     <jsp:body>
     <section class="content">
-    <jsp:include page="../shared/alert.jsp"></jsp:include> 
+     <jsp:include page="../shared/alert.jsp"></jsp:include> 
      	<div class="jumbotron">
 		  <h1 class="display-4">Bienvenido a Integrador!</h1>
 		  <p class="lead">Integrador es un sistema bancario diseñado para garantizar una buena experiencia a todos sus usuarios.</p>

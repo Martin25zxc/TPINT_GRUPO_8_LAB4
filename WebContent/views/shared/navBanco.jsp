@@ -19,7 +19,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../assets/adminLTE/index2.html" class="nav-link">
+                <a href="${pageContext.request.contextPath}/Clientes/Listado" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de clientes</p>
                 </a>
@@ -37,13 +37,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../assets/adminLTE/index.html" class="nav-link">
+                <a href="${pageContext.request.contextPath}/Clientes/Alta" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Alta de cuentas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../assets/adminLTE/index2.html" class="nav-link">
+                <a href="${pageContext.request.contextPath}/Clientes/Listado" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de cuentas</p>
                 </a>

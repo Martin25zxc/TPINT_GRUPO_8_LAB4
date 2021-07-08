@@ -1,15 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="iso-8859-1"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:masterBanco>
  	<jsp:attribute name="title">
     Alta de Clientes
     </jsp:attribute>
-    
      <jsp:attribute name="asideBar">
      	<jsp:include page="../shared/asideBar.jsp"></jsp:include>
     </jsp:attribute>
     
     <jsp:body>
+   
+    <jsp:include page="../shared/alert.jsp"></jsp:include>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -31,14 +32,14 @@
                       <!-- Apellido -->
                       <div class="form-group">
                    		 <label for="txtApellido">Apellido</label>
-                    	<input type="text" class="form-control" name="txtApellido" id="txtApellido" placeholder="Apellido">
+                    	<input type="text" class="form-control" name="txtApellido" id="txtApellido" placeholder="Apellido" required autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Nombre -->
                       <div class="form-group">
                    		 <label for="txtNombre">Nombre</label>
-                    	<input type="text" class="form-control" name= "txtNombre" id="txtNombre" placeholder="Nombre">
+                    	<input type="text" class="form-control" name= "txtNombre" id="txtNombre" placeholder="Nombre" required autocomplete="off" >
                   	  </div>
                     </div>
                   </div>
@@ -49,7 +50,7 @@
                       <!-- Documento -->
                       <div class="form-group">
                    		 <label for="txtNroDocumento">Nro de Documento</label>
-                    	<input type="text" class="form-control" name= "txtNroDocumento"  id="txtNroDocumento" placeholder="N√∫mero de Documento">
+                    	<input type="text" class="form-control" name= "txtNroDocumento"  id="txtNroDocumento" placeholder="N˙mero de Documento" required autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
@@ -60,7 +61,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" name= "txtFechaNacimiento"  id="txtFechaNacimiento" placeholder="Fecha de nacimiento" class="form-control datemask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    <input type="text" name= "txtFechaNacimiento"  id="txtFechaNacimiento" placeholder="Fecha de nacimiento" class="form-control datemask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                   </div>
                    	</div>
                     </div>
@@ -71,14 +72,16 @@
                       <!-- Nacionalidad -->
                       <div class="form-group">
                    		 <label for="txtNacionalidad">Nacionalidad</label>
-                    	<input type="text" class="form-control"  name= "txtNacionalidad"  id="txtNacionalidad" placeholder="Nacionalidad">
+                    	<select class="form-control"  name= "txtNacionalidad"  id="txtNacionalidad" required>
+                    		<option value="">Seleccione</option>
+                    	</select>
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Provincia -->
                       <div class="form-group">
                    		 <label for="txtProvincia">Provincia</label>
-                    	<input type="text" class="form-control" name= "txtProvincia" id="txtProvincia" placeholder="Provincia">
+                    	<input type="text" class="form-control" name= "txtProvincia" id="txtProvincia" placeholder="Provincia" required autocomplete="off" >
                   	  </div>
                     </div>
                   </div>
@@ -88,14 +91,14 @@
                       <!-- Localidad -->
                       <div class="form-group">
                    		 <label for="txtLocalidad">Localidad</label>
-                    	<input type="text" class="form-control" name= "txtLocalidad"  id="txtLocalidad" placeholder="Localidad">
+                    	<input type="text" class="form-control" name= "txtLocalidad"  id="txtLocalidad" placeholder="Localidad" autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Direccion -->
                       <div class="form-group">
-                   		 <label for="txtProvincia">Direcci√≥n</label>
-                    	<input type="text" class="form-control" name= "txtDireccion" id="txtDireccion" placeholder="Direcci√≥n">
+                   		 <label for="txtProvincia">DirecciÛn</label>
+                    	<input type="text" class="form-control" name= "txtDireccion" id="txtDireccion" placeholder="DirecciÛn" autocomplete="off" >
                   	  </div>
                     </div>
                   </div>
@@ -105,15 +108,15 @@
                     <div class="col-sm-12 col-md-6">
                       <!-- Telefono 1 -->
                       <div class="form-group">
-                   		 <label for="txtTelefono1">Tel√©fono 1 </label>
-                    	<input type="text" class="form-control" name= "txtTelefono1" id="txtTelefono1" placeholder="Tel√©fono 1">
+                   		 <label for="txtTelefono1">TelÈfono 1 </label>
+                    	<input type="text" class="form-control" name= "txtTelefono1" id="txtTelefono1" placeholder="TelÈfono 1" autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Telefono 2 -->
                       <div class="form-group">
-                   		 <label for="txtTelefono2">Tel√©fono 2</label>
-                    	<input type="text" class="form-control" name= "txtTelefono2" id="txtTelefono2" placeholder="Tel√©fono 2">
+                   		 <label for="txtTelefono2">TelÈfono 2</label>
+                    	<input type="text" class="form-control" name= "txtTelefono2" id="txtTelefono2" placeholder="TelÈfono 2" autocomplete="off" >
                   	  </div>
                     </div>
                   </div>
@@ -129,7 +132,7 @@
                   			<div class="input-group-prepend">
                    		 		<span class="input-group-text"><i class="fas fa-envelope"></i></span>
                  	 		</div>
-                  			<input type="email" id="txtEmail" name= "txtEmail"  class="form-control" placeholder="Email">
+                  			<input type="email" id="txtEmail" name= "txtEmail"  class="form-control" placeholder="Email" required autocomplete="off" >
               	  		</div>
                   	  </div>
                     </div>
@@ -137,18 +140,7 @@
                        <!-- Nombre de Usuario -->
                       <div class="form-group">
                    		 <label for="txtNombreUsuario">Nombre de Usuario</label>
-                    	<input type="text" class="form-control" id="txtNombreUsuario" name= "txtNombreUsuario" placeholder="Nombre de Usuario">
-                  	  </div>
-                    </div>
-                  </div>
-                   <!-- row -->
-                  
-                   <div class="row">
-                    <div class="col-sm-12 col-md-12">
-                      <!-- Descripcion  -->
-                      <div class="form-group">
-                   		 <label for="txtDescripcion">Descripci√≥n </label>
-                    	<textarea id="txtDescripcion" name= "txtDescripcion"  class="form-control" rows="3" placeholder="Descripci√≥n"></textarea>
+                    	<input type="text" class="form-control" id="txtNombreUsuario" name= "txtNombreUsuario" placeholder="Nombre de Usuario" required autocomplete="off" >
                   	  </div>
                     </div>
                   </div>
@@ -156,17 +148,17 @@
                   <!-- row -->
                    <div class="row">
                     <div class="col-sm-12 col-md-6">
-                      <!-- Contrase√±a -->
+                      <!-- ContraseÒa -->
                       <div class="form-group">
-                   		 <label for="txtContrasenia">Contrase√±a</label>
-                    	<input type="password" class="form-control" id="txtContrasenia" name= "txtContrasenia"  placeholder="Contrase√±a">
+                   		 <label for="txtContrasenia">ContraseÒa</label>
+                    	<input type="password" class="form-control" id="txtContrasenia" name= "txtContrasenia"  placeholder="ContraseÒa" required>
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                       <!-- Repetir Contrase√±a -->
+                       <!-- Repetir ContraseÒa -->
                       <div class="form-group">
-                   		 <label for="txtContraseniaRepetir">Repetir Contrase√±a</label>
-                    	<input type="password"  class="form-control" id="txtContraseniaRepetir" name= "txtContraseniaRepetir"  placeholder="Repetir Contrase√±a">
+                   		 <label for="txtContraseniaRepetir">Repetir ContraseÒa</label>
+                    	<input type="password"  class="form-control" id="txtContraseniaRepetir" name= "txtContraseniaRepetir"  placeholder="Repetir ContraseÒa" required>
                   	  </div>
                     </div>
                   </div>
@@ -182,5 +174,25 @@
       </div>
       </div>
      </section>
+     <script>
+     $(function () {
+     $.getJSON( "${pageContext.request.contextPath}"+"/assets/nacionalidades/nacionalidades.json", function( data ) {
+    	  $.each(data, function (i, item) {
+  		    $('#txtNacionalidad').append($('<option>', { 
+  		        value: item.name,
+  		        text : item.name 
+  		    }));
+  		});
+  	  });
+     });
+     
+     $(function () {
+    	  	$('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
+     });
+     
+     $(function () {
+ 	  	$('#txtNroDocumento').inputmask("99999999", { 'placeholder': '00000000' });
+     });
+     </script>
     </jsp:body>
 </t:masterBanco>    

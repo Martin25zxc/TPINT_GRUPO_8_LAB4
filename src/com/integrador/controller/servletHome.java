@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.integrador.model.Usuario;
 import com.integrador.negocio.UsuarioBll;
 import com.integrador.negocioImpl.UsuarioBllImpl;
+import com.integrador.utilities.StringHelper;
 
 /**
  * Servlet implementation class servletHome
@@ -39,7 +40,7 @@ public class servletHome extends servletBaseIntegrador {
 		}
 		else {
 			String action = getCurrentAction(request);
-			if(action.equals("/logout"))
+			if(!StringHelper.isNullOrWhitespace(action) && action.equals("/logout"))
 			{
 				request.getSession().removeAttribute("TipoUsuarioLogueado");
 				request.getSession().removeAttribute("UsuarioLogueado");
@@ -65,6 +66,7 @@ public class servletHome extends servletBaseIntegrador {
 				request.getSession().setAttribute("UsuarioLogueado",usuario);
 				request.getSession().setAttribute("TipoUsuarioLogueado",usuario.getTipousuarioId());
 				request.getSession().setAttribute("NombreUsuarioLogueado",usuario.getNombreusuario());
+				
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewHomeIndex);
 				dispatcher.forward(request, response);
 			} catch (Exception e) {

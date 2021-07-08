@@ -17,7 +17,7 @@ public class UsuarioBllImpl implements UsuarioBll{
 		Usuario user = usuarioDao.autenticar(userName, contrasenia);
 		if(user != null) return user;
 		else {
-			throw new Exception("No se coinciden ese usuario y contraseña");
+			throw new Exception("El usuario y contraseña no coinciden.");
 		}
 	}
 

@@ -1,5 +1,6 @@
 create database BancoIntegrador;
 use BancoIntegrador;
+
 create table TiposUsuarios
 ( 
  TipoUsuarioID nvarchar(30) NOT NULL,
@@ -71,13 +72,13 @@ create table Clientes
  Nombre nvarchar(160) NOT NULL,
  Apellido nvarchar(160) NOT NULL,
  Nacionalidad nvarchar(160) NOT NULL,
- Direccion nvarchar(160) NOT NULL,
- Localidad nvarchar(160) NOT NULL,
  Provincia nvarchar(160) NOT NULL,
+ Direccion nvarchar(160)  NULL,
+ Localidad nvarchar(160)  NULL,
  Email nvarchar(60) NOT NULL,
  NroDocumento nvarchar(20) NOT NULL,
- Telefono1 nvarchar(60) NOT NULL,
- Telefono2 nvarchar(60) NOT NULL,
+ Telefono1 nvarchar(60)  NULL,
+ Telefono2 nvarchar(60)  NULL,
  UsuarioID int not null,
  Activo bit not null,
  CONSTRAINT pk_Clientes PRIMARY KEY (ClienteID),

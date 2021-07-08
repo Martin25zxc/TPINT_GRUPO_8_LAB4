@@ -1,11 +1,11 @@
 package com.integrador.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cliente {
 	private int clienteId;
-	private Date fechaNacimiento;
-	private Date fechaAlta;
+	private LocalDate fechaNacimiento;
+	private LocalDate fechaAlta;
 	private String nombre;
 	private String apellido;
 	private String nacionalidad;
@@ -21,7 +21,7 @@ public class Cliente {
 	
 	private Usuario usuario;
 	
-	public Cliente(Date fechaNacimiento, Date fechaAlta, String nombre, String apellido, String nacionalidad, String direccion,
+	public Cliente(LocalDate fechaNacimiento, LocalDate fechaAlta, String nombre, String apellido, String nacionalidad, String direccion,
 			String localidad, String provincia, String email, String nroDocumento, String telefono1, String telefono2,
 			int usuarioID, boolean activo) {
 		
@@ -52,11 +52,11 @@ public class Cliente {
 		this.clienteId = clienteId;
 	}
 	
-	public Date getFechaAlta() {
+	public LocalDate getFechaAlta() {
 		return fechaAlta;
 	}
 
-	public void setFechaAlta(Date fechaAlta) {
+	public void setFechaAlta(LocalDate fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
 
@@ -64,12 +64,12 @@ public class Cliente {
 		return clienteId;
 	}
 	
-	public Date getFechaNacimiento(){
+	public LocalDate getFechaNacimiento(){
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(java.util.Date FechaNacimiento){
-		this.fechaNacimiento=FechaNacimiento;
+	public void setFechaNacimiento(LocalDate date){
+		this.fechaNacimiento=date;
 	}
 
 	public String getNombre(){

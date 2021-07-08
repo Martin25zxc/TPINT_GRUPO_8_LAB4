@@ -15,25 +15,25 @@ public class ClienteBllImpl implements ClienteBll {
 	}
 	
 	@Override
-	public int post(Cliente cliente) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int post(Cliente cliente) throws BusinessException {
+		int r = clienteDao.post(cliente);
+		return r;
 	}
 
 	@Override
-	public boolean update(Cliente cliente) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(int id) throws Exception {
+	public boolean update(Cliente cliente) throws BusinessException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Cliente get(int id) throws Exception {
+	public boolean delete(int id) throws BusinessException {
+		
+		return false;
+	}
+
+	@Override
+	public Cliente get(int id) throws BusinessException {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -39,7 +39,6 @@ public class servletHome extends servletBaseIntegrador {
 		}
 		else {
 			String action = getCurrentAction(request);
-			System.out.println(action);
 			if(action.equals("/logout"))
 			{
 				request.getSession().removeAttribute("TipoUsuarioLogueado");

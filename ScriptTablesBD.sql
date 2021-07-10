@@ -1,6 +1,5 @@
 create database BancoIntegrador;
 use BancoIntegrador;
-
 create table TiposUsuarios
 ( 
  TipoUsuarioID nvarchar(30) NOT NULL,
@@ -18,7 +17,9 @@ create table Usuarios
  TipoUsuarioID nvarchar(30) NOT NULL,
  Activo bit not null,
  CONSTRAINT pk_Usuarios PRIMARY KEY (UsuarioID),
- constraint fk_Usuarios_TiposUsuarios FOREIGN KEY (TipoUsuarioID) REFERENCES TiposUsuarios(TipoUsuarioID)
+ constraint fk_Usuarios_TiposUsuarios FOREIGN KEY (TipoUsuarioID) REFERENCES TiposUsuarios(TipoUsuarioID),
+ constraint UK_Usuarios_UserEmail UNIQUE (UserEmail),
+ constraint UK_Usuarios_NombreUsuario UNIQUE (NombreUsuario)
 );
 create table Permisos
 ( 
@@ -82,7 +83,9 @@ create table Clientes
  UsuarioID int not null,
  Activo bit not null,
  CONSTRAINT pk_Clientes PRIMARY KEY (ClienteID),
- constraint fk_Clientes_Usuarios FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID) 
+ constraint fk_Clientes_Usuarios FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
+ constraint UK_Clientes_NroDocumento UNIQUE (NroDocumento),
+ constraint UK_Usuarios_Email UNIQUE (Email)
 );
 create table TiposCuentas
 ( 
@@ -163,5 +166,4 @@ select 'Cliente', 'Tipo de usuario Cliente', 'Usuario Cliente, tiene acceso a lo
 
 insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo)
 select 'admin', 'admin',' admin@integrador.com', 'Usuario admin del sistema','Banco',1;
-
 

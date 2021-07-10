@@ -1,22 +1,13 @@
-<%@page contentType="text/html" pageEncoding="iso-8859-1"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:masterBanco>
- 	<jsp:attribute name="title">
-    Alta de Clientes
-    </jsp:attribute>
-     <jsp:attribute name="asideBar">
-     	<jsp:include page="../shared/asideBar.jsp"></jsp:include>
-    </jsp:attribute>
-    
-    <jsp:body>
-   
-    <jsp:include page="../shared/alert.jsp"></jsp:include>
+
+
+ <jsp:include page="../shared/templatingTop.jsp">
+ 		<jsp:param name="title" value="Alta de Clientes" />
+ </jsp:include>
+ 
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column -->
           <div class="col-md-12">
-          
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -25,20 +16,21 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form action="${pageContext.request.contextPath}/Clientes/Alta" method="post">
+               <!-- .card-body -->
                 <div class="card-body">
                 <!-- row -->
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                       <!-- Apellido -->
                       <div class="form-group">
-                   		 <label for="txtApellido">Apellido</label>
+                   		 <label for="txtApellido">Apellido *</label>
                     	<input type="text" class="form-control" name="txtApellido" id="txtApellido" placeholder="Apellido" required autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Nombre -->
                       <div class="form-group">
-                   		 <label for="txtNombre">Nombre</label>
+                   		 <label for="txtNombre">Nombre *</label>
                     	<input type="text" class="form-control" name= "txtNombre" id="txtNombre" placeholder="Nombre" required autocomplete="off" >
                   	  </div>
                     </div>
@@ -49,14 +41,14 @@
                     <div class="col-sm-12 col-md-6">
                       <!-- Documento -->
                       <div class="form-group">
-                   		 <label for="txtNroDocumento">Nro de Documento</label>
+                   		 <label for="txtNroDocumento">Nro de Documento *</label>
                     	<input type="text" class="form-control" name= "txtNroDocumento"  id="txtNroDocumento" placeholder="Número de Documento" required autocomplete="off" >
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- FechaNacimiento -->
                       <div class="form-group">
-                  		<label>Fecha de Nacimiento</label>
+                  		<label>Fecha de Nacimiento *</label>
                    		<div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -71,7 +63,7 @@
                     <div class="col-sm-12 col-md-6">
                       <!-- Nacionalidad -->
                       <div class="form-group">
-                   		 <label for="txtNacionalidad">Nacionalidad</label>
+                   		 <label for="txtNacionalidad">Nacionalidad *</label>
                     	<select class="form-control"  name= "txtNacionalidad"  id="txtNacionalidad" required>
                     		<option value="">Seleccione</option>
                     	</select>
@@ -80,7 +72,7 @@
                     <div class="col-sm-12 col-md-6">
                        <!-- Provincia -->
                       <div class="form-group">
-                   		 <label for="txtProvincia">Provincia</label>
+                   		 <label for="txtProvincia">Provincia *</label>
                     	<input type="text" class="form-control" name= "txtProvincia" id="txtProvincia" placeholder="Provincia" required autocomplete="off" >
                   	  </div>
                     </div>
@@ -97,7 +89,7 @@
                     <div class="col-sm-12 col-md-6">
                        <!-- Direccion -->
                       <div class="form-group">
-                   		 <label for="txtProvincia">Dirección</label>
+                   		 <label for="txtDireccion">Dirección</label>
                     	<input type="text" class="form-control" name= "txtDireccion" id="txtDireccion" placeholder="Dirección" autocomplete="off" >
                   	  </div>
                     </div>
@@ -127,7 +119,7 @@
                     <div class="col-sm-12 col-md-6">
                       <!-- E-mail -->
                       <div class="form-group">
-                   		 <label for="txtEmail">E-mail </label>
+                   		 <label for="txtEmail">E-mail *</label>
                     	<div class="input-group mb-3">
                   			<div class="input-group-prepend">
                    		 		<span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -139,7 +131,7 @@
                     <div class="col-sm-12 col-md-6">
                        <!-- Nombre de Usuario -->
                       <div class="form-group">
-                   		 <label for="txtNombreUsuario">Nombre de Usuario</label>
+                   		 <label for="txtNombreUsuario">Nombre de Usuario *</label>
                     	<input type="text" class="form-control" id="txtNombreUsuario" name= "txtNombreUsuario" placeholder="Nombre de Usuario" required autocomplete="off" >
                   	  </div>
                     </div>
@@ -150,14 +142,14 @@
                     <div class="col-sm-12 col-md-6">
                       <!-- Contraseña -->
                       <div class="form-group">
-                   		 <label for="txtContrasenia">Contraseña</label>
+                   		 <label for="txtContrasenia">Contraseña *</label>
                     	<input type="password" class="form-control" id="txtContrasenia" name= "txtContrasenia"  placeholder="Contraseña" required>
                   	  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                        <!-- Repetir Contraseña -->
                       <div class="form-group">
-                   		 <label for="txtContraseniaRepetir">Repetir Contraseña</label>
+                   		 <label for="txtContraseniaRepetir">Repetir Contraseña *</label>
                     	<input type="password"  class="form-control" id="txtContraseniaRepetir" name= "txtContraseniaRepetir"  placeholder="Repetir Contraseña" required>
                   	  </div>
                     </div>
@@ -166,8 +158,13 @@
                    </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" name="btnAceptar" class="btn btn-primary" onclick="confirm('Confirme alta de usuario')" >Confirmar</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Guardar</button>
                 </div>
+                
+				<!-- Modal -->
+				<jsp:include page="../shared/modalConfirmacion.jsp">
+			 		<jsp:param name="confirmationModalText"  value="Confirme el alta de cliente" />
+			 	</jsp:include>
               </form>
             </div>
       	</div>
@@ -194,5 +191,4 @@
  	  	$('#txtNroDocumento').inputmask("99999999", { 'placeholder': '00000000' });
      });
      </script>
-    </jsp:body>
-</t:masterBanco>    
+<jsp:include page="../shared/templatingBottom.jsp"></jsp:include>  

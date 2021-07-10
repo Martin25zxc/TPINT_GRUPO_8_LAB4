@@ -1,7 +1,14 @@
-<%String error =(String)request.getAttribute("alertErrorMessage");%>
-<%String warning =(String)request.getAttribute("alertWarningMessage");%>
-<%String success =(String)request.getAttribute("alertSuccessMessage");%>
-<%String info =(String)request.getAttribute("alertInforMessage");%>
+<%
+String error =(String)request.getSession().getAttribute("alertErrorMessage");
+String warning =(String)request.getSession().getAttribute("alertWarningMessage");
+String success =(String)request.getSession().getAttribute("alertSuccessMessage");
+String info =(String)request.getSession().getAttribute("alertInforMessage");
+
+request.getSession().removeAttribute("alertErrorMessage");
+request.getSession().removeAttribute("alertWarningMessage");
+request.getSession().removeAttribute("alertSuccessMessage");
+request.getSession().removeAttribute("alertInforMessage");
+%>
 
 <%if(error != null) {%>
 <div class="alert alert-danger alert-dismissible sm-12">

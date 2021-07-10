@@ -1,6 +1,8 @@
 <%@page import="com.integrador.model.Usuario"%>
 <% String tipo =(String)session.getAttribute("TipoUsuarioLogueado");%>
-<% Usuario user =(Usuario)session.getAttribute("UsuarioLogueado");%>
+<% Usuario user =(Usuario)session.getAttribute("UsuarioLogueado");
+   String nombreUsuario = user.getNombreUsuario();
+%>
 <% int id = user.getUsuarioId();%>
 <%! String rol =""; %>
 <%  rol = tipo != null? "../shared/nav"+tipo+".jsp": "../shared/navBlank.jsp"; %>
@@ -18,10 +20,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="https://www.gravatar.com/avatar/<%=((String)session.getAttribute("NombreUsuarioLogueado")).hashCode() %>?d=identicon" class="img-circle elevation-2" alt="User Image">
+          <img src="https://www.gravatar.com/avatar/<%=nombreUsuario.hashCode() %>?d=identicon" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="${pageContext.request.contextPath}/Usuarios/<%=id%>" class="d-block"><%=(String)session.getAttribute("NombreUsuarioLogueado") %></a>
+          <a href="${pageContext.request.contextPath}/Usuarios/<%=id%>" class="d-block"><%=nombreUsuario%></a>
         </div>
       </div>
 

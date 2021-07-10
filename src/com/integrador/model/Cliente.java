@@ -16,7 +16,7 @@ public class Cliente {
 	private String nroDocumento;
 	private String telefono1;
 	private String telefono2;
-	private int usuarioID;
+	private int usuarioId;
 	private boolean activo;
 	
 	private Usuario usuario;
@@ -37,7 +37,7 @@ public class Cliente {
 		this.telefono1 = telefono1;
 		this.telefono2 = telefono2;
 		this.activo = activo;
-		this.usuarioID = usuarioID;
+		this.usuarioId = usuarioID;
 		this.fechaAlta = fechaAlta;
 	}
 	
@@ -128,14 +128,6 @@ public class Cliente {
 		this.email=Email;
 	}
 
-	public String getNrodocumento(){
-		return nroDocumento;
-	}
-
-	public void setNrodocumento(String NroDocumento){
-		this.nroDocumento=NroDocumento;
-	}
-
 	public String getTelefono1(){
 		return telefono1;
 	}
@@ -152,12 +144,12 @@ public class Cliente {
 		this.telefono2=Telefono2;
 	}
 
-	public int getUsuarioid(){
-		return usuarioID;
+	public int getUsuarioId(){
+		return usuarioId;
 	}
 
-	public void setUsuarioid(int UsuarioID){
-		this.usuarioID=UsuarioID;
+	public void setUsuarioId(int UsuarioID){
+		this.usuarioId=UsuarioID;
 	}
 
 	public boolean isActive() {
@@ -177,11 +169,11 @@ public class Cliente {
 	}
 
 	public int getUsuarioID() {
-		return usuarioID;
+		return usuarioId;
 	}
 
 	public void setUsuarioID(int usuarioID) {
-		this.usuarioID = usuarioID;
+		this.usuarioId = usuarioID;
 	}
 
 	public Usuario getUsuario() {

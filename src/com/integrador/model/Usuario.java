@@ -1,5 +1,7 @@
 package com.integrador.model;
 
+import java.time.LocalDate;
+
 public class Usuario {
 	private int usuarioId;
 	private String nombreUsuario;
@@ -8,9 +10,11 @@ public class Usuario {
 	private String descripcion;
 	private String tipoUsuarioId;
 	private boolean activo;
+	private LocalDate fechaAlta;
+	
 	private Cliente cliente;
 	
-	public Usuario(String nombreUsuario, String contrasenia, String email, String descripcion, String tipoUsuarioID, boolean activo) {
+	public Usuario(String nombreUsuario, String contrasenia, String email, String descripcion, String tipoUsuarioID, boolean activo, LocalDate fechaAlta) {
 		this.nombreUsuario = nombreUsuario;
 		this.contrasenia = contrasenia;
 		this.email = email;
@@ -18,6 +22,7 @@ public class Usuario {
 		this.tipoUsuarioId = tipoUsuarioID;
 		this.activo = activo;
 		this.cliente = null;
+		this.fechaAlta = fechaAlta;
 	}
 	
 	public Usuario() {
@@ -31,11 +36,11 @@ public class Usuario {
 		this.usuarioId = id;
 	}
 	
-	public String getNombreusuario(){
+	public String getNombreUsuario(){
 		return nombreUsuario;
 	}
 
-	public void setNombreusuario(String nombreUsuario){
+	public void setNombreUsuario(String nombreUsuario){
 		this.nombreUsuario = nombreUsuario;
 	}
 
@@ -62,8 +67,8 @@ public class Usuario {
 	public void setDescripcion(String descripcion){
 		this.descripcion = descripcion;
 	}
-
-	public String getTipousuarioId(){
+	
+	public String getTipoUsuarioId(){
 		return tipoUsuarioId;
 	}
 
@@ -85,5 +90,13 @@ public class Usuario {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public LocalDate getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(LocalDate fechaAlta) {
+		this.fechaAlta = fechaAlta;
 	}
 }

@@ -1,4 +1,4 @@
-package com.integrador.negocioImpl;
+package com.integrador.customExceptions;
 import java.io.IOException;
 public class BusinessException extends IOException {
 	private static final long serialVersionUID = -2892419532443123476L;

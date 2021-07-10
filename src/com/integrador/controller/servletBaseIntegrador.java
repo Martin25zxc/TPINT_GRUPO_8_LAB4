@@ -2,7 +2,6 @@ package com.integrador.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,18 +42,18 @@ public abstract class servletBaseIntegrador extends HttpServlet {
 	}
 	
 	protected void addErrorAlertMessage(HttpServletRequest request, String message) {
-		request.setAttribute("alertErrorMessage",message);
+		request.getSession().setAttribute("alertErrorMessage",message);
 	}
 	
 	protected void addInfoAlertMessage(HttpServletRequest request, String message) {
-		request.setAttribute("alertInforMessage",message);
+		request.getSession().setAttribute("alertInforMessage",message);
 	}
 	
 	protected void addSuccessAlertMessage(HttpServletRequest request, String message) {
-		request.setAttribute("alertSuccessMessage",message);
+		request.getSession().setAttribute("alertSuccessMessage",message);
 	}
 	
 	protected void addWarningAlertMessage(HttpServletRequest request, String message) {
-		request.setAttribute("alertWarningMessage",message);
+		request.getSession().setAttribute("alertWarningMessage",message);
 	}
 }

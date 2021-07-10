@@ -45,6 +45,11 @@ public class servletHome extends servletBaseIntegrador {
 				request.getSession().removeAttribute("TipoUsuarioLogueado");
 				request.getSession().removeAttribute("UsuarioLogueado");
 				request.getSession().removeAttribute("NombreUsuarioLogueado");
+				request.getSession().removeAttribute("alertErrorMessage");
+				request.getSession().removeAttribute("alertWarningMessage");
+				request.getSession().removeAttribute("alertSuccessMessage");
+				request.getSession().removeAttribute("alertInforMessage");
+				
 				doGet(request,response);
 			}
 			else
@@ -64,8 +69,8 @@ public class servletHome extends servletBaseIntegrador {
 				Usuario usuario = usuarioBll.autenticar(nombre, contrasenia);
 				
 				request.getSession().setAttribute("UsuarioLogueado",usuario);
-				request.getSession().setAttribute("TipoUsuarioLogueado",usuario.getTipousuarioId());
-				request.getSession().setAttribute("NombreUsuarioLogueado",usuario.getNombreusuario());
+				request.getSession().setAttribute("TipoUsuarioLogueado",usuario.getTipoUsuarioId());
+				request.getSession().setAttribute("NombreUsuarioLogueado",usuario.getNombreUsuario());
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewHomeIndex);
 				dispatcher.forward(request, response);

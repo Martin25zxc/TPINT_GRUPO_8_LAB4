@@ -16,9 +16,10 @@ public  class ResultSetMapper {
 		String descripcion = resultSet.getString("Descripcion");
 		String tipoUsuarioId= resultSet.getString("TipoUsuarioID");
 		boolean activo = resultSet.getBoolean("Activo");
-		Usuario usuario = new Usuario(nombreUsuario,contrasenia , email, descripcion, tipoUsuarioId, activo);
-		usuario.setUsuarioId(usuarioId);
 		
+		Usuario usuario = new Usuario(nombreUsuario,contrasenia , email, descripcion, tipoUsuarioId, activo,(resultSet.getDate("FechaAlta")).toLocalDate());
+		usuario.setUsuarioId(usuarioId);
+
 		if(tipoUsuarioId.equals("Cliente"))
 		{
 			Cliente cliente = mapResultCliente(resultSet);

@@ -8,6 +8,7 @@ public interface ClienteDao {
 	public boolean post (Cliente cliente);
 	public boolean update (Cliente cliente);
 	public boolean delete (int id);
+	public boolean activate (int id);
 	public Cliente get(int id);
 	public List<Cliente> get();
 }

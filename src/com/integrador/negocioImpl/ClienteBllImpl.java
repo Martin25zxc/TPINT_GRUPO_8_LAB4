@@ -3,6 +3,7 @@ package com.integrador.negocioImpl;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.integrador.customExceptions.BusinessException;
 import com.integrador.dao.ClienteDao;
 import com.integrador.daoImpl.ClienteDaoImpl;
 import com.integrador.model.Cliente;
@@ -29,10 +30,9 @@ public class ClienteBllImpl implements ClienteBll {
 
 	@Override
 	public void update(Cliente cliente) throws BusinessException {
-		Cliente reg = null;
-		reg = clienteDao.get(cliente.getClienteId());
-		if (reg == null)
-			throw new BusinessException("No se encontró al Cliente solicitado.");
+		String errores = validacionesModificar(cliente);
+		if( !StringHelper.isNullOrWhitespace(errores))
+			throw new BusinessException(errores);
 		
 		if(!clienteDao.update(cliente))
 			throw new BusinessException("No se pudo actualizar el registro.");
@@ -49,6 +49,17 @@ public class ClienteBllImpl implements ClienteBll {
 			throw new BusinessException("No se pudo borrar el registro.");
 	}
 
+	@Override
+	public void activate(int id) throws BusinessException {
+		Cliente cliente = null;
+		cliente = clienteDao.get(id);
+		if (cliente == null)
+			throw new BusinessException("No se encontró al Cliente solicitado.");
+		
+		if(!clienteDao.activate(id))
+			throw new BusinessException("No se pudo activar el registro.");
+	}
+	
 	@Override
 	public Cliente get(int id) throws BusinessException {
 		Cliente cliente = null;
@@ -71,7 +82,9 @@ public class ClienteBllImpl implements ClienteBll {
 		if(cliente.getUsuario() == null)
 		{
 			errores += "No se agregaron los datos para registrar el usuario";
-			String contrasenia = cliente.getUsuario().getContrasenia();
+		} else {
+			
+			String contrasenia = cliente.getUsuario().getContrasenia().trim();
 			if(StringHelper.isNullOrWhitespace(contrasenia))
 			{
 				errores += "No se registro la contraseña.";
@@ -81,7 +94,7 @@ public class ClienteBllImpl implements ClienteBll {
 				errores += "La contraseña tiene que tener 5 o mas caracteres.";
 			}
 			
-			String nombreUsuario = cliente.getUsuario().getNombreusuario();
+			String nombreUsuario = cliente.getUsuario().getNombreUsuario().trim();
 			if(StringHelper.isNullOrWhitespace(nombreUsuario))
 			{
 				errores += "No se registro la nombre de usuario.";
@@ -92,31 +105,79 @@ public class ClienteBllImpl implements ClienteBll {
 			}
 		}
 		
-		String email = cliente.getEmail();
+		String email = cliente.getEmail().trim();
 		if(StringHelper.isNullOrWhitespace(email))
 		{
 			errores += "No se registro el e-mail.";
 		}
 		
-		String nombre = cliente.getNombre();
+		String nombre = cliente.getNombre().trim();
 		if(StringHelper.isNullOrWhitespace(nombre))
 		{
 			errores += "No se registro el nombre.";
 		}
 		
-		String apellido = cliente.getApellido();
+		String apellido = cliente.getApellido().trim();
 		if(StringHelper.isNullOrWhitespace(apellido))
 		{
 			errores += "No se registro el e-mail.";
 		}
 		
-		String nacionalidad = cliente.getNacionalidad();
+		String nacionalidad = cliente.getNacionalidad().trim();
 		if(StringHelper.isNullOrWhitespace(nacionalidad))
 		{
 			errores += "No se registro la nacionalidad.";
 		}
 		
-		String nroDocumento = cliente.getNrodocumento();
+		String nroDocumento = cliente.getNroDocumento().trim();
+		if(StringHelper.isNullOrWhitespace(nroDocumento))
+		{
+			errores += "No se registro el nro de documento.";
+		}
+		
+		LocalDate hoy = LocalDate.now();
+		LocalDate fechaNacimiento = cliente.getFechaNacimiento();
+		int edad = DateHelper.calculateAge(fechaNacimiento, hoy);
+		if(edad < 18) {
+			errores += "El cliente tiene que ser mayor de edad.";
+		}
+		
+		return errores;
+	}
+	private String validacionesModificar(Cliente cliente)
+	{
+		
+		String errores = "";
+		Cliente reg = null;
+		reg = clienteDao.get(cliente.getClienteId());
+		if (reg == null)
+			errores += "No se encontró al Cliente solicitado.";
+		
+		String email = cliente.getEmail().trim();
+		if(StringHelper.isNullOrWhitespace(email))
+		{
+			errores += "No se registro el e-mail.";
+		}
+		
+		String nombre = cliente.getNombre().trim();
+		if(StringHelper.isNullOrWhitespace(nombre))
+		{
+			errores += "No se registro el nombre.";
+		}
+		
+		String apellido = cliente.getApellido().trim();
+		if(StringHelper.isNullOrWhitespace(apellido))
+		{
+			errores += "No se registro el e-mail.";
+		}
+		
+		String nacionalidad = cliente.getNacionalidad().trim();
+		if(StringHelper.isNullOrWhitespace(nacionalidad))
+		{
+			errores += "No se registro la nacionalidad.";
+		}
+		
+		String nroDocumento = cliente.getNroDocumento().trim();
 		if(StringHelper.isNullOrWhitespace(nroDocumento))
 		{
 			errores += "No se registro el nro de documento.";

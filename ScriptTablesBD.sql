@@ -16,6 +16,7 @@ create table Usuarios
  Descripcion nvarchar(160) NULL,
  TipoUsuarioID nvarchar(30) NOT NULL,
  Activo bit not null,
+ FechaAlta DateTime not null,
  CONSTRAINT pk_Usuarios PRIMARY KEY (UsuarioID),
  constraint fk_Usuarios_TiposUsuarios FOREIGN KEY (TipoUsuarioID) REFERENCES TiposUsuarios(TipoUsuarioID),
  constraint UK_Usuarios_UserEmail UNIQUE (UserEmail),
@@ -85,7 +86,7 @@ create table Clientes
  CONSTRAINT pk_Clientes PRIMARY KEY (ClienteID),
  constraint fk_Clientes_Usuarios FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
  constraint UK_Clientes_NroDocumento UNIQUE (NroDocumento),
- constraint UK_Usuarios_Email UNIQUE (Email)
+ constraint UK_Clientes_Email UNIQUE (Email)
 );
 create table TiposCuentas
 ( 
@@ -115,7 +116,10 @@ create table Cuentas
  constraint pk_Cuentas PRIMARY KEY (CuentaID),
  constraint fk_Cuentas_Clientes FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID) ON DELETE CASCADE,
  constraint fk_Cuentas_Bancos FOREIGN KEY (BancoID) REFERENCES Bancos(BancoID) ,
- constraint fk_Cuentas_TiposCuentas FOREIGN KEY (TipoCuentaID) REFERENCES TiposCuentas(TipoCuentaID) 
+ constraint fk_Cuentas_TiposCuentas FOREIGN KEY (TipoCuentaID) REFERENCES TiposCuentas(TipoCuentaID),
+ constraint UK_Cuentas_NumeroDeCuenta UNIQUE (NumeroDeCuenta),
+ constraint UK_Cuentas_Alias UNIQUE (Alias),
+ constraint UK_Cuentas_CBU UNIQUE (CBU)
 );
 create table Prestamos
 ( 
@@ -164,6 +168,6 @@ insert into TiposUsuarios(TipoUsuarioID, Nombre, Descripcion)
 select 'Banco', 'Tipo de usuario Banco', 'Usuario Banco, tiene acceso a los modulos de operador del banco' union
 select 'Cliente', 'Tipo de usuario Cliente', 'Usuario Cliente, tiene acceso a los modulos de Cliente';
 
-insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo)
-select 'admin', 'admin',' admin@integrador.com', 'Usuario admin del sistema','Banco',1;
+insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo, FechaAlta)
+select 'admin', 'admin','admin@integrador.com', 'Usuario admin del sistema','Banco',1, now();
 

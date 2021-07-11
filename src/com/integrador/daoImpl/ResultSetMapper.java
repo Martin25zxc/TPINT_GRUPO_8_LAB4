@@ -9,15 +9,15 @@ import com.integrador.model.Usuario;
 public  class ResultSetMapper {
 	public static Usuario mapResultUsuario(ResultSet resultSet) throws SQLException
 	{
-		int usuarioId = resultSet.getInt("UsuarioID");
-		String nombreUsuario = resultSet.getString("NombreUsuario");
-		String contrasenia = resultSet.getString("Contrasenia");
-		String email = resultSet.getString("UserEmail");
-		String descripcion = resultSet.getString("Descripcion");
-		String tipoUsuarioId= resultSet.getString("TipoUsuarioID");
-		boolean activo = resultSet.getBoolean("Activo");
+		int usuarioId = resultSet.getInt("usuariosUsuarioID");
+		String nombreUsuario = resultSet.getString("usuariosNombreUsuario");
+		String contrasenia = resultSet.getString("usuariosContrasenia");
+		String email = resultSet.getString("usuariosUserEmail");
+		String descripcion = resultSet.getString("usuariosDescripcion");
+		String tipoUsuarioId= resultSet.getString("usuariosTipoUsuarioID");
+		boolean activo = resultSet.getBoolean("usuariosActivo");
 		
-		Usuario usuario = new Usuario(nombreUsuario,contrasenia , email, descripcion, tipoUsuarioId, activo,(resultSet.getDate("FechaAlta")).toLocalDate());
+		Usuario usuario = new Usuario(nombreUsuario,contrasenia , email, descripcion, tipoUsuarioId, activo,(resultSet.getDate("usuariosFechaAlta")).toLocalDate());
 		usuario.setUsuarioId(usuarioId);
 
 		if(tipoUsuarioId.equals("Cliente"))
@@ -32,21 +32,21 @@ public  class ResultSetMapper {
 	public static Cliente mapResultCliente(ResultSet resultSet) throws SQLException
 	{
 		Cliente cliente = new Cliente();
-		cliente.setClienteId(resultSet.getInt("clienteID"));
-		cliente.setFechaNacimiento((resultSet.getDate("FechaNacimiento")).toLocalDate());
-		cliente.setFechaAlta((resultSet.getDate("FechaAlta")).toLocalDate());
-		cliente.setNombre(resultSet.getString("Nombre"));
-		cliente.setApellido(resultSet.getString("Apellido"));
-		cliente.setNacionalidad(resultSet.getString("Nacionalidad"));
-		cliente.setDireccion(resultSet.getString("Direccion"));
-		cliente.setLocalidad(resultSet.getString("Localidad"));
-		cliente.setProvincia(resultSet.getString("Provincia"));
-		cliente.setNroDocumento(resultSet.getString("NroDocumento"));
-		cliente.setTelefono1(resultSet.getString("Telefono1"));
-		cliente.setTelefono2(resultSet.getString("Telefono2"));
-		cliente.setActivo(resultSet.getBoolean("Activo"));
-		cliente.setUsuarioID(resultSet.getInt("UsuarioID"));
-		cliente.setEmail(resultSet.getString("Email"));
+		cliente.setClienteId(resultSet.getInt("clientesClienteId"));
+		cliente.setFechaNacimiento((resultSet.getDate("clientesFechaNacimiento")).toLocalDate());
+		cliente.setFechaAlta((resultSet.getDate("clientesFechaAlta")).toLocalDate());
+		cliente.setNombre(resultSet.getString("clientesNombre"));
+		cliente.setApellido(resultSet.getString("clientesApellido"));
+		cliente.setNacionalidad(resultSet.getString("clientesNacionalidad"));
+		cliente.setDireccion(resultSet.getString("clientesDireccion"));
+		cliente.setLocalidad(resultSet.getString("clientesLocalidad"));
+		cliente.setProvincia(resultSet.getString("clientesProvincia"));
+		cliente.setNroDocumento(resultSet.getString("clientesNroDocumento"));
+		cliente.setTelefono1(resultSet.getString("clientesTelefono1"));
+		cliente.setTelefono2(resultSet.getString("clientesTelefono2"));
+		cliente.setActivo(resultSet.getBoolean("clientesActivo"));
+		cliente.setUsuarioID(resultSet.getInt("clientesUsuarioID"));
+		cliente.setEmail(resultSet.getString("clientesEmail"));
 		return cliente;
 	}
 }

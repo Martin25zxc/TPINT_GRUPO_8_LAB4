@@ -1,14 +1,10 @@
 package com.integrador.negocioImpl;
 
-import java.time.LocalDate;
-
 import com.integrador.customExceptions.BusinessException;
 import com.integrador.dao.UsuarioDao;
 import com.integrador.daoImpl.UsuarioDaoImpl;
-import com.integrador.model.Cliente;
 import com.integrador.model.Usuario;
 import com.integrador.negocio.UsuarioBll;
-import com.integrador.utilities.DateHelper;
 import com.integrador.utilities.StringHelper;
 
 public class UsuarioBllImpl implements UsuarioBll{
@@ -28,7 +24,10 @@ public class UsuarioBllImpl implements UsuarioBll{
 			throw new BusinessException("El usuario se encuentra desactivado");
 		
 		if(user.getCliente() != null && !user.getCliente().isActive())
+		{
+			
 			throw new BusinessException("El cliente se encuentra desactivado");
+		}
 		user.setContrasenia("");
 		return user;
 	}

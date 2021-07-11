@@ -8,10 +8,10 @@ import com.integrador.dao.UsuarioDao;
 import com.integrador.model.Usuario;
 import com.integrador.utilities.Conexion;
 
-public class UsuarioDaoImpl implements UsuarioDao {
-	private static final String autenticarQ ="select * from usuarios u left join clientes c on u.usuarioid = c.usuarioid left join tiposusuarios t on u.tipousuarioid = t.tipousuarioid where u.contrasenia = ? COLLATE utf8mb4_0900_as_cs and u.nombreusuario = ? COLLATE utf8mb4_0900_as_cs";
-	private static final String getQ = "select * from usuarios u left join clientes c on u.usuarioid = c.usuarioid left join tiposusuarios t on u.tipousuarioid = t.tipousuarioid where u.usuarioId = ?";
-	private static final String cambioContraseaniaQ = "update usuarios set contrasenia = ? where usuarioId = ?;";
+public class UsuarioDaoImpl extends baseDaoImpl implements UsuarioDao {
+	private final String autenticarQ ="select "+ this.selectUsuariosCardQ +" , "+ this.selectClienteCardQ + "from usuarios left join clientes  on usuarios.usuarioid = clientes.usuarioid left join tiposusuarios  on usuarios.tipousuarioid = tiposusuarios.tipousuarioid where usuarios.contrasenia = ? COLLATE utf8mb4_0900_as_cs and usuarios.nombreusuario = ? COLLATE utf8mb4_0900_as_cs";
+	private final String getQ = "select "  + this.selectUsuariosCardQ + " from usuarios left join clientes on u.usuarioid = clientes.usuarioid left join tiposusuarios t on usuarios.tipousuarioid = t.tipousuarioid where usuarios.usuarioId = ?";
+	private final String cambioContraseaniaQ = "update usuarios set contrasenia = ? where usuarioId = ?;";
 	@Override
 	public Usuario autenticar(String userName, String contrasenia) {
 		PreparedStatement statement;

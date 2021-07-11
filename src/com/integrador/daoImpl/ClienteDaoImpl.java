@@ -10,20 +10,20 @@ import com.integrador.dao.ClienteDao;
 import com.integrador.model.Cliente;
 import com.integrador.utilities.Conexion;
 
-public class ClienteDaoImpl implements ClienteDao {
+public class ClienteDaoImpl extends baseDaoImpl implements ClienteDao {
 
-	private static final String[] postQ = {
+	private final String[] postQ = {
 			"insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo, FechaAlta) "
 					+ "select ?, ?,?, 'Usuario Cliente del sistema','Cliente',1, now(); ",
 
 			" insert into Clientes(FechaNacimiento,FechaAlta, Nombre, Apellido, Nacionalidad, Provincia, Localidad,Direccion, Email, NroDocumento, Telefono1, Telefono2, usuarioId, Activo)"
 					+ " select ?, now(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,LAST_INSERT_ID(),1;" };
 
-	private static final String cambioDeEstadoQ = "update clientes set activo = ? where clienteid = ?;";
+	private final String cambioDeEstadoQ = "update clientes set activo = ? where clienteid = ?;";
 
-	private static final String getQ = "select * from clientes ";
+	private final String getQ = "select " + this.selectClienteCardQ + " from clientes ";
 
-	private static final String[] updateQ = {
+	private final String[] updateQ = {
 			" update usuarios  inner join clientes c on usuarios.usuarioid = c.usuarioid "
 					+ "set UserEmail= ? where clienteId = ?;",
 

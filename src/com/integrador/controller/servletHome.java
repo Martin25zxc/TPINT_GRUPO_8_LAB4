@@ -75,6 +75,7 @@ public class servletHome extends servletBaseIntegrador {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewHomeIndex);
 				dispatcher.forward(request, response);
 			} catch (Exception e) {
+				e.printStackTrace();
 				addErrorAlertMessage(request,e.getMessage());
 				doGet(request,response);
 			}

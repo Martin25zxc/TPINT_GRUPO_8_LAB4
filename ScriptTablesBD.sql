@@ -181,6 +181,8 @@ select 'Integrador', 'Banco Integrador. Banco que opera el sistema';
 
 insert into TiposMovimientos(Nombre, descripcion)
 select 'Alta de cuenta', 'El alta de una cuenta genera un movimiento de dinero positivo en la cuenta origen.' union
-select 'Alta de un préstamo', 'El alta de un préstamo genera un movimiento de dinero positivo en la cuenta origen.' union
-select 'Pago de préstamo', 'El pago de un préstamo, genera un movimiento de dinero negativo en la cuenta origen.' union
-select 'Transferencia.', 'Una transferencia genera dos movimientos, un movimiento negativo en la cuenta de origen (extracción de dinero) y un movimiento positivo en la cuenta destino(depósito de dinero).' 
+select 'Alta de un prestamo', 'El alta de un préstamo genera un movimiento de dinero positivo en la cuenta origen.' union
+select 'Pago de prestamo', 'El pago de un préstamo, genera un movimiento de dinero negativo en la cuenta origen.' union
+select 'Transferencia', 'Una transferencia genera dos movimientos, un movimiento negativo en la cuenta de origen (extracción de dinero) y un movimiento positivo en la cuenta destino(depósito de dinero).' union
+select 'Retiro', 'El retiro de dinero de una cuenta, genera un movimiento de dinero negativo en la cuenta origen.' union
+select 'Deposito', 'El depósito de dinero en una cuenta, genera un movimiento de dinero positivo en la cuenta destino.' 

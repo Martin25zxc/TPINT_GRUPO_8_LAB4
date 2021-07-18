@@ -5,24 +5,38 @@
 <%
 String title = request.getParameter("title");
 String dataTable = request.getParameter("dataTable");
+String selectAutocomplete = request.getParameter("selectAutocomplete");
 %>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${title}</title>
+  <title><%=title%></title>
   <!-- MD5 -->
   <script src="${pageContext.request.contextPath}/assets/MD5/js/md5.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/dist/css/adminlte.min.css">
+  
+  <link rel="shortcut icon" type="image/svg+xml" href="${pageContext.request.contextPath}/assets/favicon.svg"/>
+	
   
   <!-- jQuery -->
-	<script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
+   <script src="${pageContext.request.contextPath}/assets/adminLTE/plugins/jquery/jquery.min.js"></script>
+   
+    <!-- selectAutocomplete -->
+  <%if(selectAutocomplete != null) {%>
+   	 <jsp:include page="../shared/selectAutocomplete.jsp"></jsp:include>
+   <%}%>
+    
+  <!-- Theme style -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/adminLTE/dist/css/adminlte.min.css">
+  <!-- dataTable -->
   <%if(dataTable != null) {%>
    	 <jsp:include page="../shared/dataTable.jsp"></jsp:include>
    <%}%>
+
+	
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->

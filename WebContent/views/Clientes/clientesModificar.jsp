@@ -7,6 +7,7 @@ String nacionalidad =  cliente.getNacionalidad();
 %>
  <jsp:include page="../shared/templatingTop.jsp">
  		<jsp:param name="title" value="Modificacion de Clientes" />
+ 		<jsp:param name="selectAutocomplete" value="true" />
  </jsp:include>
     <section class="content">
       <div class="container-fluid">
@@ -70,7 +71,7 @@ String nacionalidad =  cliente.getNacionalidad();
                       <!-- Nacionalidad -->
                       <div class="form-group">
                    		 <label for="txtNacionalidad">Nacionalidad *</label>
-                    	<select class="form-control"  name= "txtNacionalidad"  id="txtNacionalidad" required >
+                    	<select class="form-control select2" name= "txtNacionalidad"  id="txtNacionalidad" required data-dropdown-css-class="select2-blue" style="width: 100%;">
                     		<option value="">Seleccione</option>
                     	</select>
                   	  </div>
@@ -168,5 +169,9 @@ String nacionalidad =  cliente.getNacionalidad();
     	  	$('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
     	  	$('#txtNroDocumento').inputmask("99999999", { 'placeholder': '00000000' });
      });
+     
+     $(document).ready(function() {
+ 	    $('#txtNacionalidad').select2();
+ 	});
      </script>
 <jsp:include page="../shared/templatingBottom.jsp"></jsp:include>  

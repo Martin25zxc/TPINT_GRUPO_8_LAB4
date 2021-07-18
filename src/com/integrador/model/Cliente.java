@@ -183,4 +183,9 @@ public class Cliente {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	@Override
+	public String toString() {
+		return "(#"+this.clienteId+") " + this.apellido + ", " + this.nombre + " (" + this.nroDocumento+")";
+	}
 }

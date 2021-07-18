@@ -26,10 +26,18 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/assets/adminLTE/dist/js/demo.js"></script>
 
-<<script type="text/javascript">
+<script type="text/javascript">
 $(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
 })
+$(document).ready(function () {
+			let arr = window.location.pathname.toLowerCase().split("/");
+			  console.log(arr)
+            let path = arr[2] + '/' + arr[3];
+            console.log(arr[2])
+            $(".nav-link[data-nav='" + arr[2] + "']").addClass("active").parent().addClass("menu-open");
+            $(".nav-link[data-nav='" + path + "']").addClass("active");
+});
 </script>
 </body>
 </html>

@@ -9,9 +9,16 @@ public class TipoCuenta {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
-
+	
+	public TipoCuenta() {
+	}
+	
 	public int getTipoCuentaId(){
 		return tipoCuentaId;
+	}
+	
+	public void setTipoCuentaId(int tipoCuentaId){
+		this.tipoCuentaId = tipoCuentaId;
 	}
 	
 	public String getNombre(){

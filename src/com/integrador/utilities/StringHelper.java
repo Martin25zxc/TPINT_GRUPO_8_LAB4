@@ -9,7 +9,13 @@ public class StringHelper {
 		return s == null || isWhitespace(s) ||  s.equals("") ;
 
 	}
-
+	
+	public static String padLeft(int length, String str, char ch)
+	{
+		String string =  String.format("%1$" + length + "s", str).replace(' ', ch);
+		return string;
+	}
+	
 	private static boolean isWhitespace(String s) {
 		int length = s.length();
 		if (length > 0) {
@@ -23,6 +29,15 @@ public class StringHelper {
 		return false;
 	}
 
+	public static String reverseString(String str){  
+	    char ch[]=str.toCharArray();  
+	    String rev="";  
+	    for(int i=ch.length-1;i>=0;i--){  
+	        rev+=ch[i];  
+	    }  
+	    return rev;  
+	}  
+	
 	public static boolean isNumeric(String str) {
 		try {
 			Double.parseDouble(str);
@@ -30,5 +45,10 @@ public class StringHelper {
 		} catch (NumberFormatException e) {
 			return false;
 		}
+	}
+  
+	public static String formatDecimal(double number) {
+		  String string = "$"+ String.format("%,.2f", number);
+		  return string;
 	}
 }

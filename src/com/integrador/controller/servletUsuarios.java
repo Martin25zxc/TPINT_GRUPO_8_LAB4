@@ -37,9 +37,7 @@ public class servletUsuarios extends servletBaseIntegrador {
 			String action = getCurrentAction(request);
 			if(action!=null)
 			{
-				int id = -1;
 				if(StringHelper.isNumeric(action.substring(1))) {
-					id = Integer.parseInt(action.substring(1));
 					action = "/get";
 				}
 				switch (action) {

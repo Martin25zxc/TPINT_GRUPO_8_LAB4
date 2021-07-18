@@ -4,7 +4,7 @@
                
           <!-- Clientes  -->
    		  <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link " data-nav="clientes">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Clientes
@@ -12,14 +12,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="${pageContext.request.contextPath}/Clientes/Alta" class="nav-link">
+              <li class="nav-item"  >
+              <a href="${pageContext.request.contextPath}/Clientes/Alta" class="nav-link" data-nav="clientes/alta">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Alta de clientes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/Clientes/Listado" class="nav-link">
+                <a href="${pageContext.request.contextPath}/Clientes/Listado" class="nav-link" data-nav="clientes/listado">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de clientes</p>
                 </a>
@@ -28,7 +28,7 @@
           </li>
          <!-- Cuentas  -->
          <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" data-nav="cuentas">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Cuentas
@@ -36,14 +36,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/Clientes/Alta" class="nav-link">
+              <li class="nav-item"  >
+                <a href="${pageContext.request.contextPath}/Cuentas/Alta" class="nav-link" data-nav="cuentas/alta">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Alta de cuentas</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/Clientes/Listado" class="nav-link">
+              <li class="nav-item"  data-nav="/cuentas/listado">
+                <a href="${pageContext.request.contextPath}/Cuentas/Listado" class="nav-link" data-nav="cuentas/listado">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista de cuentas</p>
                 </a>

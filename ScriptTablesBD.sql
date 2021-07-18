@@ -39,33 +39,7 @@ create table PermisosUsuarios
  constraint fk_PEU_Usuarios FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)  ON DELETE CASCADE,
  constraint fk_PEU_Permisos FOREIGN KEY (PermisoID) REFERENCES Permisos(PermisoID)  ON DELETE CASCADE
 );
-create table TiposMovimientos
-( 
- TipoMovimientoID int NOT NULL AUTO_INCREMENT,
- Nombre nvarchar(60) NOT NULL,
- Descripcion nvarchar(160) NOT NULL,
- CONSTRAINT pk_TiposMovimientos PRIMARY KEY (TipoMovimientoID)
-);
-create table Movimientos
-( 
- MovimientoID int NOT NULL AUTO_INCREMENT,
- Importe decimal(15,2) NOT NULL, -- Siempre positivo
- Detalle nvarchar(160) NOT NULL,
- TipoMovimientoID int NOT NULL,
- CONSTRAINT pk_Movimientos PRIMARY KEY (MovimientoID),
- constraint fk_Movimientos_TiposMovimientos FOREIGN KEY (TipoMovimientoID) REFERENCES TiposMovimientos(TipoMovimientoID)
-);
-create table ResultadosMovimientos
-( 
- ResultadoMovimientoID int NOT NULL AUTO_INCREMENT,
- Importe decimal(15,2) NOT NULL, -- Cambia el signo dependiente el movimiento
- Detalle nvarchar(160) NOT NULL,
- MovimientoID  int NOT NULL,
- UsuarioID int not null, 
- CONSTRAINT pk_ResultadosMovimientos PRIMARY KEY (ResultadoMovimientoID),
- constraint fk_ResultadosMovimientos_Movimientos FOREIGN KEY (MovimientoID) REFERENCES Movimientos(MovimientoID)  ON DELETE CASCADE,
- constraint fk_ResultadosMovimientos_Usuarios FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)  ON DELETE CASCADE
-);
+
 create table Clientes
 ( 
  ClienteID int NOT NULL AUTO_INCREMENT,
@@ -92,7 +66,7 @@ create table TiposCuentas
 ( 
  TipoCuentaID int NOT NULL AUTO_INCREMENT,
  Nombre nvarchar(60) NOT NULL,
- Descripcion nvarchar(160)  NULL,
+ Descripcion nvarchar(360)  NULL,
  CONSTRAINT pk_TiposCuentas PRIMARY KEY (TipoCuentaID)
 );
 create table Bancos
@@ -120,6 +94,33 @@ create table Cuentas
  constraint UK_Cuentas_NumeroDeCuenta UNIQUE (NumeroDeCuenta),
  constraint UK_Cuentas_Alias UNIQUE (Alias),
  constraint UK_Cuentas_CBU UNIQUE (CBU)
+);
+create table TiposMovimientos
+( 
+ TipoMovimientoID int NOT NULL AUTO_INCREMENT,
+ Nombre nvarchar(60) NOT NULL,
+ Descripcion nvarchar(360) NOT NULL,
+ CONSTRAINT pk_TiposMovimientos PRIMARY KEY (TipoMovimientoID)
+);
+create table Movimientos
+( 
+ MovimientoID int NOT NULL AUTO_INCREMENT,
+ Importe decimal(15,2) NOT NULL, -- Siempre positivo
+ Detalle nvarchar(160) NOT NULL,
+ TipoMovimientoID int NOT NULL,
+ CONSTRAINT pk_Movimientos PRIMARY KEY (MovimientoID),
+ constraint fk_Movimientos_TiposMovimientos FOREIGN KEY (TipoMovimientoID) REFERENCES TiposMovimientos(TipoMovimientoID)
+);
+create table ResultadosMovimientos
+( 
+ ResultadoMovimientoID int NOT NULL AUTO_INCREMENT,
+ Importe decimal(15,2) NOT NULL, -- Cambia el signo dependiente el movimiento
+ Detalle nvarchar(160) NOT NULL,
+ MovimientoId  int NOT NULL,
+ CuentaId int not null, 
+ CONSTRAINT pk_ResultadosMovimientos PRIMARY KEY (ResultadoMovimientoID),
+ constraint fk_ResultadosMovimientos_Movimientos FOREIGN KEY (MovimientoID) REFERENCES Movimientos(MovimientoID)  ON DELETE CASCADE,
+ constraint fk_ResultadosMovimientos_Cuentas FOREIGN KEY (CuentaId) REFERENCES Cuentas(CuentaId)  ON DELETE CASCADE
 );
 create table Prestamos
 ( 
@@ -171,3 +172,15 @@ select 'Cliente', 'Tipo de usuario Cliente', 'Usuario Cliente, tiene acceso a lo
 insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo, FechaAlta)
 select 'admin', 'admin','admin@integrador.com', 'Usuario admin del sistema','Banco',1, now();
 
+insert into TiposCuentas(Nombre, Descripcion)
+select 'Caja de ahorro', 'Tipo de cuenta: Caja de ahorro' union
+select  'Cuenta corriente', 'Tipo de Cuenta: Cuenta corriente';
+
+insert into Bancos(Nombre, descripcion)
+select 'Integrador', 'Banco Integrador. Banco que opera el sistema';
+
+insert into TiposMovimientos(Nombre, descripcion)
+select 'Alta de cuenta', 'El alta de una cuenta genera un movimiento de dinero positivo en la cuenta origen.' union
+select 'Alta de un préstamo', 'El alta de un préstamo genera un movimiento de dinero positivo en la cuenta origen.' union
+select 'Pago de préstamo', 'El pago de un préstamo, genera un movimiento de dinero negativo en la cuenta origen.' union
+select 'Transferencia.', 'Una transferencia genera dos movimientos, un movimiento negativo en la cuenta de origen (extracción de dinero) y un movimiento positivo en la cuenta destino(depósito de dinero).' 

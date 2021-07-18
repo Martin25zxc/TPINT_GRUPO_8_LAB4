@@ -1,5 +1,9 @@
 package com.integrador.model;
 
+import java.time.LocalDate;
+
+import com.integrador.utilities.StringHelper;
+
 public class Cuenta {
 	private int cuentaId;
 	private int clienteId;
@@ -9,6 +13,12 @@ public class Cuenta {
 	private int bancoId;
 	private int tipoCuentaId;
 	private boolean activo;
+	private LocalDate fechaAlta;
+	
+	private Cliente cliente;
+	private TipoCuenta tipoCuenta;
+	
+	private double saldo;
 	
 	public Cuenta(int clienteId, String numeroDeCuenta, String cBU, String alias, int bancoId, int tipoCuentaId, boolean activo) {
 		this.clienteId = clienteId;
@@ -31,27 +41,19 @@ public class Cuenta {
 		this.cuentaId = cuentaId;
 	}
 
-	public int getClienteid(){
-		return clienteId;
-	}
-
-	public void setClienteid(int ClienteID){
-		this.clienteId=ClienteID;
-	}
-
-	public String getNumerodecuenta(){
+	public String getNumeroDeCuenta(){
 		return numeroDeCuenta;
 	}
 
-	public void setNumerodecuenta(String NumeroDeCuenta){
+	public void setNumeroDeCuenta(String NumeroDeCuenta){
 		this.numeroDeCuenta=NumeroDeCuenta;
 	}
 
-	public String getCbu(){
+	public String getCBU(){
 		return CBU;
 	}
 
-	public void setCbu(String CBU){
+	public void setCBU(String CBU){
 		this.CBU=CBU;
 	}
 
@@ -59,24 +61,16 @@ public class Cuenta {
 		return alias;
 	}
 
-	public void setAlias(String Alias){
-		this.alias=Alias;
+	public void setAlias(String alias){
+		this.alias=alias;
 	}
 
-	public int getBancoid(){
+	public int getBancoId(){
 		return bancoId;
 	}
 
-	public void setBancoid(int BancoID){
-		this.bancoId=BancoID;
-	}
-
-	public int getTipocuentaid(){
-		return tipoCuentaId;
-	}
-
-	public void setTipocuentaid(int TipoCuentaID){
-		this.tipoCuentaId=TipoCuentaID;
+	public void setBancoId(int bancoId){
+		this.bancoId=bancoId;
 	}
 	
 	public boolean isActive() {
@@ -85,5 +79,59 @@ public class Cuenta {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	public int getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
+	}
+
+	public int getTipoCuentaId() {
+		return tipoCuentaId;
+	}
+
+	public void setTipoCuentaId(int tipoCuentaId) {
+		this.tipoCuentaId = tipoCuentaId;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public TipoCuenta getTipoCuenta() {
+		return tipoCuenta;
+	}
+
+	public void setTipoCuenta(TipoCuenta tipoCuenta) {
+		this.tipoCuenta = tipoCuenta;
+	}
+
+	public LocalDate getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(LocalDate fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+	
+	public String saldoString() {
+		String saldoFormat = StringHelper.formatDecimal(this.saldo);
+		return saldoFormat;
+	}
+	
+	
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
 	}
 }

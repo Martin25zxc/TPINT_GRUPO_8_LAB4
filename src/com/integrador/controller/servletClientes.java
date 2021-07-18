@@ -1,7 +1,12 @@
 package com.integrador.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.integrador.customExceptions.BusinessException;
 import com.integrador.model.Cliente;
 import com.integrador.model.Usuario;
@@ -62,6 +68,31 @@ public class servletClientes extends servletBaseIntegrador {
 					dispatcher.forward(request, response);
 					break;
 				}
+				case "/get": {
+					 Gson gson = new Gson();
+					 List<Cliente> clientes = clienteBll.get();
+					 String searchTerm = request.getParameter("search");
+					
+					 clientes = clientes.stream()
+							.filter(x -> x.toString().toLowerCase().contains((searchTerm == null?"":searchTerm).toLowerCase()))
+							.collect(Collectors.toList());
+					 
+					 clientes.sort(new Comparator<Cliente>() {
+						    @Override
+				            public int compare(Cliente o1, Cliente o2) {
+				                return o1.getApellido().compareTo(o2.getApellido());
+				            }
+				        });
+							
+					 String employeeJsonString = gson.toJson(clientes);
+					
+					PrintWriter out = response.getWriter();
+					response.setContentType("application/json");
+					response.setCharacterEncoding("UTF-8");
+					out.print(employeeJsonString);
+					out.flush();
+					break;
+				}
 				case "/desactivar": {
 					int id = Integer.parseInt(request.getParameter("id"));
 
@@ -69,7 +100,7 @@ public class servletClientes extends servletBaseIntegrador {
 						clienteBll.delete(id);
 						this.addSuccessAlertMessage(request, "Se desactivo al cliente #" + id + " exitosamente.");
 					} catch (Exception ex) {
-						this.addErrorAlertMessage(request, "No se pudo eliminar el registro.");
+						this.addErrorAlertMessage(request, "No se pudo desactivar el registro.");
 					}
 					request.setAttribute("list", clienteBll.get());
 					RequestDispatcher dispatcher = request.getRequestDispatcher(viewClienteListado);
@@ -112,7 +143,6 @@ public class servletClientes extends servletBaseIntegrador {
 				}
 			}
 		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -172,7 +202,7 @@ public class servletClientes extends servletBaseIntegrador {
 			}
 		}
 	}
-
+    
 	private void alta(HttpServletRequest request, HttpServletResponse response) throws IOException, BusinessException {
 		String contrasenia = request.getParameter("txtContrasenia").trim();
 		String contraseniaARepetir = request.getParameter("txtContraseniaRepetir").trim();

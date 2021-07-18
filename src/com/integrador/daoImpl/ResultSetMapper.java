@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.integrador.model.Cliente;
+import com.integrador.model.Cuenta;
+import com.integrador.model.TipoCuenta;
 import com.integrador.model.Usuario;
 
 public  class ResultSetMapper {
@@ -48,5 +50,51 @@ public  class ResultSetMapper {
 		cliente.setUsuarioID(resultSet.getInt("clientesUsuarioID"));
 		cliente.setEmail(resultSet.getString("clientesEmail"));
 		return cliente;
+	}
+	
+	public static Cuenta mapResultCuenta(ResultSet resultSet) throws SQLException {
+		Cuenta cuenta = new Cuenta();
+		cuenta.setCuentaId(resultSet.getInt("cuentasCuentaId"));
+		cuenta.setClienteId(resultSet.getInt("cuentasClienteId"));
+		cuenta.setFechaAlta((resultSet.getDate("cuentasFechaAlta")).toLocalDate());
+		cuenta.setNumeroDeCuenta(resultSet.getString("cuentasNumeroDeCuenta"));
+		cuenta.setCBU(resultSet.getString("cuentasCBU"));
+		cuenta.setAlias(resultSet.getString("cuentasAlias"));
+		cuenta.setBancoId(resultSet.getInt("cuentasBancoId"));
+		cuenta.setTipoCuentaId(resultSet.getInt("cuentasTipoCuentaId"));
+		cuenta.setActivo(resultSet.getBoolean("cuentasActivo"));
+		
+		Integer tipoCuentaId = resultSet.getInt("tiposCuentasTipoCuentaId");
+		if (tipoCuentaId != null && !tipoCuentaId.equals(0)) {
+			TipoCuenta tipoCuenta = mapResultTipoCuenta(resultSet);
+			cuenta.setTipoCuenta(tipoCuenta);
+		}
+		
+		Integer clienteId = resultSet.getInt("clientesClienteId");
+		if (clienteId != null && !tipoCuentaId.equals(0)) {
+			Cliente cliente = mapResultCliente(resultSet);
+			cuenta.setCliente(cliente);
+		}
+		
+		try
+		{
+			double saldo = resultSet.getDouble("rmSaldo");
+			cuenta.setSaldo(saldo);
+		}
+		catch(SQLException ex)
+		{
+			
+		}
+		
+		return cuenta;
+	}
+	
+	public static TipoCuenta mapResultTipoCuenta(ResultSet resultSet) throws SQLException
+	{
+		TipoCuenta tipoCuenta = new TipoCuenta();
+		tipoCuenta.setTipoCuentaId(resultSet.getInt("tiposCuentasTipoCuentaId"));
+		tipoCuenta.setNombre(resultSet.getString("tiposCuentasNombre"));
+		tipoCuenta.setDescripcion(resultSet.getString("tiposCuentasDescripcion"));
+		return tipoCuenta;
 	}
 }

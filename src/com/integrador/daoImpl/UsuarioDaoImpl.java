@@ -10,7 +10,7 @@ import com.integrador.utilities.Conexion;
 
 public class UsuarioDaoImpl extends baseDaoImpl implements UsuarioDao {
 	private final String autenticarQ ="select "+ this.selectUsuariosCardQ +" , "+ this.selectClienteCardQ + "from usuarios left join clientes  on usuarios.usuarioid = clientes.usuarioid left join tiposusuarios  on usuarios.tipousuarioid = tiposusuarios.tipousuarioid where usuarios.contrasenia = ? COLLATE utf8mb4_0900_as_cs and usuarios.nombreusuario = ? COLLATE utf8mb4_0900_as_cs";
-	private final String getQ = "select "  + this.selectUsuariosCardQ + " from usuarios left join clientes on u.usuarioid = clientes.usuarioid left join tiposusuarios t on usuarios.tipousuarioid = t.tipousuarioid where usuarios.usuarioId = ?";
+	private final String getQ = "select "  + this.selectUsuariosCardQ +" , " + this.selectClienteCardQ +" from usuarios left join clientes on usuarios.usuarioid = clientes.usuarioid left join tiposusuarios t on usuarios.tipousuarioid = t.tipousuarioid where usuarios.usuarioId = ?";
 	private final String cambioContraseaniaQ = "update usuarios set contrasenia = ? where usuarioId = ?;";
 	@Override
 	public Usuario autenticar(String userName, String contrasenia) {
@@ -49,6 +49,7 @@ public class UsuarioDaoImpl extends baseDaoImpl implements UsuarioDao {
 		{
 			statement = conexion.getSQLConexion().prepareStatement(getQ);
 			statement.setInt(1, id);
+			System.out.println(statement);
 			resultSet = statement.executeQuery();
 			while(resultSet.next())
 			{

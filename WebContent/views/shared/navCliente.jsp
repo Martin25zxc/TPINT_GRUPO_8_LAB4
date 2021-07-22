@@ -22,13 +22,21 @@
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="*" class="nav-link" data-nav="prestamos/solicitar">
+      <a
+        href="${pageContext.request.contextPath}/Prestamos/Solicitar"
+        class="nav-link"
+        data-nav="prestamos/solicitar"
+      >
         <i class="far fa-circle nav-icon"></i>
         <p>Solicitar</p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="*" class="nav-link" data-nav="prestamos/pagar">
+      <a
+        href="${pageContext.request.contextPath}/Prestamos/Pagar"
+        class="nav-link"
+        data-nav="prestamos/pagar"
+      >
         <i class="far fa-circle nav-icon"></i>
         <p>Pagar</p>
       </a>
@@ -46,7 +54,8 @@
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="${pageContext.request.contextPath}/Movimientos/transferir"
+      <a
+        href="${pageContext.request.contextPath}/Movimientos/transferir"
         class="nav-link"
         data-nav="movimientos/transferir"
       >
@@ -55,7 +64,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="${pageContext.request.contextPath}/Movimientos/depositar"
+      <a
+        href="${pageContext.request.contextPath}/Movimientos/depositar"
         class="nav-link"
         data-nav="movimientos/depositar"
       >
@@ -64,7 +74,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="${pageContext.request.contextPath}/Movimientos/retirar"
+      <a
+        href="${pageContext.request.contextPath}/Movimientos/retirar"
         class="nav-link"
         data-nav="movimientos/retirar"
       >

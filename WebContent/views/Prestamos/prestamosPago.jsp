@@ -22,7 +22,7 @@
 									<!-- Cuotas a pagar -->
 									<div class="form-group">
 										<label for="txtCuotas">Cuotas a pagar</label> <input  class="form-control"
-											id="txtCuotas" name="txtCuotas"
+											id="txtCuotas" name="txtCuotas" type="number"
 											placeholder="Cuotas a pagar" required>
 									</div>
 								</div>

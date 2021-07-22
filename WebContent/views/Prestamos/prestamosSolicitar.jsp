@@ -22,7 +22,7 @@
 									<!-- Importe -->
 									<div class="form-group">
 										<label for="txtImporte">Importe *</label> <input  class="form-control"
-											id="txtImporte" name="txtImporte"
+											id="txtImporte" name="txtImporte"  type="number" step=".01"
 											placeholder="Importe del prestamo" required>
 									</div>
 								</div>

@@ -51,8 +51,8 @@
             </ul>
           </li>
          <!-- Prestamos  -->
-          <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+          <li class="nav-item"  >
+            <a href="${pageContext.request.contextPath}/Prestamos/Listado" class="nav-link" data-nav="prestamos">
               <i class="nav-icon fas fa-hand-holding-usd"></i>
               <p>
                 Prestamos
@@ -61,7 +61,7 @@
           </li>
           <!-- Informes  -->
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="${pageContext.request.contextPath}/Reportes/Listado"  class="nav-link" data-nav="repartos">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                 Informes

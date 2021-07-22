@@ -46,8 +46,7 @@
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a
-        href="${pageContext.request.contextPath}/movimientos/transferir"
+      <a href="${pageContext.request.contextPath}/Movimientos/transferir"
         class="nav-link"
         data-nav="movimientos/transferir"
       >
@@ -56,8 +55,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a
-        href="${pageContext.request.contextPath}/movimientos/depositar"
+      <a href="${pageContext.request.contextPath}/Movimientos/depositar"
         class="nav-link"
         data-nav="movimientos/depositar"
       >
@@ -66,8 +64,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a
-        href="${pageContext.request.contextPath}/movimientos/retirar"
+      <a href="${pageContext.request.contextPath}/Movimientos/retirar"
         class="nav-link"
         data-nav="movimientos/retirar"
       >

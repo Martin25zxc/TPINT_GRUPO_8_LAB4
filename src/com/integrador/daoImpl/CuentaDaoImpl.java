@@ -17,8 +17,8 @@ public class CuentaDaoImpl extends baseDaoImpl  implements CuentaDao {
 			"insert into Cuentas (FechaAlta, NumeroDeCuenta, CBU, Alias, BancoId, TipoCuentaID, Activo, ClienteId) " + 
 			"select now(), ?, ?, ?,(select bancoid from bancos where nombre = 'Integrador'), ?,1, ? " ,
 			
-			"insert into Movimientos(Importe, Detalle, TipoMovimientoId) " + 
-			"select 10000, 'Alta de cuenta', (SELECT tipomovimientoId from tiposmovimientos where nombre = 'Alta de cuenta');", 
+			"insert into Movimientos(Importe, Detalle, TipoMovimientoId, FechaAlta) " + 
+			"select 10000, 'Alta de cuenta', (SELECT tipomovimientoId from tiposmovimientos where nombre = 'Alta de cuenta'), now();", 
 			
 			"insert into ResultadosMovimientos(Importe, Detalle, MovimientoId, CuentaId) " + 
 			"select 10000, 'Alta de cuenta',  (SELECT LAST_INSERT_ID()) , (SELECT cuentaid from Cuentas where NumeroDeCuenta = ?);"};

@@ -85,7 +85,6 @@
 </Section>
 <script type="text/javascript">
     $('.btnDesactivar').on('click', function () {
-    	console.log($(this).attr("data-idCuenta"));
     	$(this).tooltip('hide');
         return confirm("Esta seguro que quiere desactivar la cuenta #"+$(this).attr("data-idCuenta") +"? Para volver a activarla tendra que comunicarse con el banco");
     });

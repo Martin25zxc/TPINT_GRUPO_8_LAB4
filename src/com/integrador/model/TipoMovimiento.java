@@ -17,6 +17,10 @@ public class TipoMovimiento {
 		return tipoMovimientoId;
 	}
 	
+	public void setTipoMovimientoId(int tipoMovimientoId){
+		this.tipoMovimientoId = tipoMovimientoId;
+	}
+	
 	public String getNombre(){
 		return nombre;
 	}

@@ -108,6 +108,7 @@ create table Movimientos
  Importe decimal(15,2) NOT NULL, -- Siempre positivo
  Detalle nvarchar(160) NOT NULL,
  TipoMovimientoID int NOT NULL,
+ FechaAlta Datetime not null,
  CONSTRAINT pk_Movimientos PRIMARY KEY (MovimientoID),
  constraint fk_Movimientos_TiposMovimientos FOREIGN KEY (TipoMovimientoID) REFERENCES TiposMovimientos(TipoMovimientoID)
 );
@@ -171,6 +172,8 @@ select 'Cliente', 'Tipo de usuario Cliente', 'Usuario Cliente, tiene acceso a lo
 
 insert into Usuarios(NombreUsuario, Contrasenia, UserEmail,Descripcion,TipoUsuarioID,Activo, FechaAlta)
 select 'admin', 'admin','admin@integrador.com', 'Usuario admin del sistema','Banco',1, now();
+select 'gerente', 'admin','gerente@integrador.com', 'Usuario admin del sistema','Banco',1, now();
+select '', 'admin','admin@integrador.com', 'Usuario admin del sistema','Banco',1, now();
 
 insert into TiposCuentas(Nombre, Descripcion)
 select 'Caja de ahorro', 'Tipo de cuenta: Caja de ahorro' union
@@ -185,4 +188,5 @@ select 'Alta de un prestamo', 'El alta de un préstamo genera un movimiento de d
 select 'Pago de prestamo', 'El pago de un préstamo, genera un movimiento de dinero negativo en la cuenta origen.' union
 select 'Transferencia', 'Una transferencia genera dos movimientos, un movimiento negativo en la cuenta de origen (extracción de dinero) y un movimiento positivo en la cuenta destino(depósito de dinero).' union
 select 'Retiro', 'El retiro de dinero de una cuenta, genera un movimiento de dinero negativo en la cuenta origen.' union
-select 'Deposito', 'El depósito de dinero en una cuenta, genera un movimiento de dinero positivo en la cuenta destino.' 
+select 'Deposito', 'El depósito de dinero en una cuenta, genera un movimiento de dinero positivo en la cuenta destino.'; 
+

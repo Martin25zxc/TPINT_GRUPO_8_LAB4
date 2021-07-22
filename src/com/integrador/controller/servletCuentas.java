@@ -13,7 +13,9 @@ import com.integrador.customExceptions.BusinessException;
 import com.integrador.model.Cuenta;
 import com.integrador.model.Usuario;
 import com.integrador.negocio.CuentaBll;
+import com.integrador.negocio.MovimientoBll;
 import com.integrador.negocioImpl.CuentaBllImpl;
+import com.integrador.negocioImpl.MovimientoBllImpl;
 
 /**
  * Servlet implementation class servletCuentas
@@ -27,13 +29,15 @@ public class servletCuentas extends servletBaseIntegrador{
 	private final String viewCuentaListado = "/views/Cuentas/cuentasListado.jsp";
 	private final String viewCuentaMis = "/views/Cuentas/cuentasMisCuentas.jsp";
 	private final String viewCuentaCambioAlias = "/views/Cuentas/cuentasCambioAlias.jsp";
-	//private final String viewCuentaMovimientos = "/views/Cuentas/cuentasMovimientos.jsp";
+	private final String viewCuentaMovimientos = "/views/Cuentas/cuentasMovimientos.jsp";
 	
 	private CuentaBll cuentaBll;
+	private MovimientoBll movimientoBll;
 	
     public servletCuentas() {
         super();
         cuentaBll = new CuentaBllImpl();
+        movimientoBll = new MovimientoBllImpl();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -113,6 +117,13 @@ public class servletCuentas extends servletBaseIntegrador{
 						this.addWarningAlertMessage(request, "El usuario logueado no posee atributos de cliente.");
 						this.redirectToHome(request, response);
 					}
+					break;
+				}
+				case "/movimientos": {
+					int id = Integer.parseInt(request.getParameter("id"));
+					request.setAttribute("list", movimientoBll.getResultadosMovimientosCuenta(id));
+					RequestDispatcher dispatcher = request.getRequestDispatcher(viewCuentaMovimientos);
+					dispatcher.forward(request, response);
 					break;
 				}
 				case "/cambiaralias": {

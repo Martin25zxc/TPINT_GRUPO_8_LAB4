@@ -32,9 +32,7 @@ $(function () {
 })
 $(document).ready(function () {
 			let arr = window.location.pathname.toLowerCase().split("/");
-			  console.log(arr)
             let path = arr[2] + '/' + arr[3];
-            console.log(arr[2])
             $(".nav-link[data-nav='" + arr[2] + "']").addClass("active").parent().addClass("menu-open");
             $(".nav-link[data-nav='" + path + "']").addClass("active");
 });

@@ -3,10 +3,7 @@ package com.integrador.daoImpl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.integrador.model.Cliente;
-import com.integrador.model.Cuenta;
-import com.integrador.model.TipoCuenta;
-import com.integrador.model.Usuario;
+import com.integrador.model.*;
 
 public  class ResultSetMapper {
 	public static Usuario mapResultUsuario(ResultSet resultSet) throws SQLException
@@ -96,5 +93,43 @@ public  class ResultSetMapper {
 		tipoCuenta.setNombre(resultSet.getString("tiposCuentasNombre"));
 		tipoCuenta.setDescripcion(resultSet.getString("tiposCuentasDescripcion"));
 		return tipoCuenta;
+	}
+	
+	public static TipoMovimiento mapResultTipoMovimiento(ResultSet resultSet) throws SQLException
+	{
+		TipoMovimiento tipoMovimiento = new TipoMovimiento();
+		tipoMovimiento.setTipoMovimientoId(resultSet.getInt("tiposMovimientosTipoMovimientoId"));
+		tipoMovimiento.setNombre(resultSet.getString("tiposMovimientosNombre"));
+		tipoMovimiento.setDescripcion(resultSet.getString("tiposMovimientosDescripcion"));
+		return tipoMovimiento;
+	}
+	
+	public static Movimiento mapResultMovimiento(ResultSet resultSet) throws SQLException
+	{
+		Movimiento movimiento = new Movimiento();
+		movimiento.setMovimientoId(resultSet.getInt("movimientosMovimientoID"));
+		movimiento.setDetalle(resultSet.getString("movimientosDetalle"));
+		movimiento.setImporte(resultSet.getDouble("movimientosImporte"));
+		movimiento.setFechaAlta((resultSet.getDate("movimientosFechaAlta")).toLocalDate());
+		movimiento.setTipoMovimientoId(resultSet.getInt("movimientosTipoMovimientoID"));
+		
+		TipoMovimiento tipoMovimiento = mapResultTipoMovimiento(resultSet);
+		movimiento.setTipoMovimiento(tipoMovimiento);
+		
+		return movimiento;
+	}
+	
+	public static ResultadoMovimiento mapResultResultadoMovimiento(ResultSet resultSet) throws SQLException
+	{
+		ResultadoMovimiento resultadoMovimiento = new ResultadoMovimiento();
+		resultadoMovimiento.setResultadoMovimientoId(resultSet.getInt("resultadosmovimientosResultadoMovimientoID"));
+		resultadoMovimiento.setMovimientoId(resultSet.getInt("resultadosmovimientosMovimientoId"));
+		resultadoMovimiento.setDetalle(resultSet.getString("movimientosDetalle"));
+		resultadoMovimiento.setImporte(resultSet.getDouble("resultadosmovimientosImporte"));
+		
+		Movimiento movimiento = mapResultMovimiento(resultSet);
+		resultadoMovimiento.setMovimiento(movimiento);
+		
+		return resultadoMovimiento;
 	}
 }

@@ -7,7 +7,8 @@ public class ResultadoMovimiento {
 	private String detalle;
 	private int movimientoId;
 	private int usuarioId;
-
+	private Movimiento movimiento;
+	
 	public ResultadoMovimiento()
 	{
 		
@@ -63,7 +64,12 @@ public class ResultadoMovimiento {
 	public void setUsuarioId(int usuarioId) {
 		this.usuarioId = usuarioId;
 	}
-	
 
-	
+	public Movimiento getMovimiento() {
+		return movimiento;
+	}
+
+	public void setMovimiento(Movimiento movimiento) {
+		this.movimiento = movimiento;
+	}
 }

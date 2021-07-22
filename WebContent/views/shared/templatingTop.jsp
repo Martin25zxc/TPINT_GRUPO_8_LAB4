@@ -10,8 +10,6 @@ String selectAutocomplete = request.getParameter("selectAutocomplete");
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%=title%></title>
-  <!-- MD5 -->
-  <script src="${pageContext.request.contextPath}/assets/MD5/js/md5.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

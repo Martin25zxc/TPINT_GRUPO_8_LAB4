@@ -95,7 +95,6 @@
 </Section>
 <script type="text/javascript">
     $('.btnDesactivar').on('click', function () {
-    	console.log($(this).attr("data-idCuenta"));
     	$(this).tooltip('hide');
         return confirm("Esta seguro que quiere desactivar el cuenta #"+$(this).attr("data-idCuenta") +"?");
     });

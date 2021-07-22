@@ -97,9 +97,9 @@ public class ClienteBllImpl implements ClienteBll {
 			String nombreUsuario = cliente.getUsuario().getNombreUsuario().trim();
 			if(StringHelper.isNullOrWhitespace(nombreUsuario))
 			{
-				errores += "No se registro la nombre de usuario.";
+				errores += "No se registro la nombre de usuario. ";
 			}
-			else if(contrasenia.length() <= 4)
+			else if(nombreUsuario.length() <= 4)
 			{
 				errores += "El nombre de usuario tiene que tener 5 o mas caracteres.";
 			}

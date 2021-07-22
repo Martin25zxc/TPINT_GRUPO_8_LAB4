@@ -60,7 +60,7 @@ String nacionalidad =  cliente.getNacionalidad();
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input value="<%=fechaNacimiento%>" type="text" name= "txtFechaNacimiento"  id="txtFechaNacimiento" placeholder="Fecha de nacimiento" class="form-control datemask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
+                    <input autocomplete="off" value="<%=fechaNacimiento%>" type="text" name= "txtFechaNacimiento"  id="txtFechaNacimiento" placeholder="Fecha de nacimiento" class="form-control datemask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                   </div>
                    	</div>
                     </div>
@@ -80,7 +80,7 @@ String nacionalidad =  cliente.getNacionalidad();
                        <!-- Provincia -->
                       <div class="form-group">
                    		 <label for="txtProvincia">Provincia *</label>
-                    	<input type="text" class="form-control" name= "txtProvincia" id="txtProvincia" placeholder="Provincia" required autocomplete="off" value="<%=cliente.getProvincia()%>"  >
+                    	<input type="text" class="form-control" name= "txtProvincia" id="txtProvincia" placeholder="Provincia" required  value="<%=cliente.getProvincia()%>"  >
                   	  </div>
                     </div>
                   </div>
